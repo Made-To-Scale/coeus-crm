@@ -5,7 +5,7 @@
   "installCommand": "npm install",
   "framework": "vite",
   "env": {
-    "VITE_SUPABASE_URL": "http://213.199.47.72:8000",
+    "VITE_SUPABASE_URL": "https://sssupabase.made-to-scale.com/",
     "VITE_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICJyb2xlIjogImFub24iLAogICJpc3MiOiAic3VwYWJhc2UiLAogICJpYXQiOiAxNzE1MDUwODAwLAogICJleHAiOiAxODcyODE3MjAwCn0.qJT2_5MYOjKFRPhAqxQ8WHhGRSaadBxKR81fbn5aNmA",
     "VITE_SEARCH_WEBHOOK_URL": "https://sswebhook.made-to-scale.com/webhook/ingest-leads"
   }
