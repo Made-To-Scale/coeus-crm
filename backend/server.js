@@ -234,6 +234,10 @@ app.post('/api/tasks/handoff', async (req, res) => {
     res.json({ status: 'task_created' });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
+
+module.exports = app;
