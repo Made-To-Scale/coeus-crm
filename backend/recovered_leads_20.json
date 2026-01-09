@@ -1,0 +1,2884 @@
+[
+  {
+    "title": "Farmacia Sexta Avenida LDO. JUAN PABLO JIMENEZ BUGER",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "Avenida de la Victoria, 2 Centro Comercial Sexta Avenida, Av. de la Victoria, 2, 28023 Madrid, España",
+    "neighborhood": "Moncloa - Aravaca",
+    "street": "Avenida de la Victoria, 2 Centro Comercial Sexta Avenida, Av. de la Victoria, 2",
+    "city": "Madrid",
+    "postalCode": "28023",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "phone": "+34 913 72 88 18",
+    "phoneUnformatted": "+34913728818",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.4679104,
+      "lng": -3.8152879
+    },
+    "totalScore": 3.9,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJKzv1spmGQQ0R20EscoITNsY",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd418699b2f53b2b:0xc6361382722c41db",
+    "cid": "14282624719234286043",
+    "reviewsCount": 37,
+    "imagesCount": 20,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:00.235Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9 AM to 9 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9 AM to 9 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9 AM to 9 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "9 AM to 8 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "11 AM to 2 PM"
+      },
+      {
+        "day": "lunes",
+        "hours": "9 AM to 9 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9 AM to 9 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Opciones de servicio": [
+        {
+          "Retiro en tienda": true
+        },
+        {
+          "Compras en tienda": true
+        },
+        {
+          "Servicios en el lugar": true
+        },
+        {
+          "Español": true
+        }
+      ],
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        },
+        {
+          "Tarjetas de crédito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Sexta%20Avenida%20LDO.%20JUAN%20PABLO%20JIMENEZ%20BUGER&query_place_id=ChIJKzv1spmGQQ0R20EscoITNsY",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 18,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipOy6Sf3qH0UCS7nq6Z27_oMN4YwN6wCQwhfN15D=w408-h306-k-no",
+    "kgmid": "/g/1hc18y_3p",
+    "emails": [],
+    "phones": [],
+    "phonesUncertain": [],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [],
+    "facebooks": [],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "FARMACIA MARIANO LANUZA. FARMACIA PINILLA SILJESTROM",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "Pl. Mariano Lanuza, 2, Latina, 28011 Madrid, España",
+    "neighborhood": "Latina",
+    "street": "Pl. Mariano Lanuza, 2",
+    "city": "Madrid",
+    "postalCode": "28011",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "phone": "+34 914 63 47 97",
+    "phoneUnformatted": "+34914634797",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.4075612,
+      "lng": -3.7392055
+    },
+    "totalScore": 4.4,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJFb9C_ionQg0R4uMuA576In4",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd42272afe42bf15:0x7e22fa9e032ee3e2",
+    "cid": "9089102554552263650",
+    "reviewsCount": 55,
+    "reviewsDistribution": {
+      "oneStar": 8,
+      "twoStar": 0,
+      "threeStar": 0,
+      "fourStar": 3,
+      "fiveStar": 44
+    },
+    "imagesCount": 7,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:02.395Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "Cerrado"
+      },
+      {
+        "day": "lunes",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9:30 AM to 9:30 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Opciones de servicio": [
+        {
+          "Entrega a domicilio": true
+        },
+        {
+          "Retiro en tienda": true
+        },
+        {
+          "Compras en tienda": true
+        }
+      ],
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        }
+      ],
+      "Planificación": [
+        {
+          "Se requiere una cita": true
+        },
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=FARMACIA%20MARIANO%20LANUZA.%20FARMACIA%20PINILLA%20SILJESTROM&query_place_id=ChIJFb9C_ionQg0R4uMuA576In4",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 54,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyRhotD2aCc6KF0qObvzjlHll5LUkabjZN53moEn_R9NIib1uJp0MHCAVCwZq1ULlbRuRgUWncfU2zROwTE90Po2CkFtVz-c4aa-XLDnrAqgt2gB3iH9EsuaoHmfLuefBDyPdqo=w408-h307-k-no",
+    "kgmid": "/g/1q5cch5cy",
+    "emails": [],
+    "phones": [],
+    "phonesUncertain": [],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [],
+    "facebooks": [],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "C. del Concejal Francisco José Jiménez Martín, 152, Latina, 28047 Madrid, España",
+    "neighborhood": "Latina",
+    "street": "C. del Concejal Francisco José Jiménez Martín, 152",
+    "city": "Madrid",
+    "postalCode": "28047",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "phone": "+34 915 26 20 48",
+    "phoneUnformatted": "+34915262048",
+    "claimThisBusiness": true,
+    "location": {
+      "lat": 40.4001726,
+      "lng": -3.7506174
+    },
+    "totalScore": 3.8,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJ09M2jPcnQg0RbLxFYrwWquU",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd4227f78c36d3d3:0xe5aa16bc6245bc6c",
+    "cid": "16549064779084708972",
+    "reviewsCount": 34,
+    "reviewsDistribution": {
+      "oneStar": 10,
+      "twoStar": 0,
+      "threeStar": 0,
+      "fourStar": 1,
+      "fiveStar": 23
+    },
+    "imagesCount": 13,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:02.395Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9 AM to 9 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9 AM to 9 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9 AM to 9 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "10 AM to 2 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "Cerrado"
+      },
+      {
+        "day": "lunes",
+        "hours": "9 AM to 9 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9 AM to 9 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        },
+        {
+          "Estacionamiento accesible para personas en silla de ruedas": false
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        },
+        {
+          "Tarjetas de crédito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia&query_place_id=ChIJ09M2jPcnQg0RbLxFYrwWquU",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 53,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzXvGVcM_7FLJYHOg-8qBfzRfT3XteJHbU2dVZ1HtC3aY8pHqvqLrMEGSaMavoQD7w9FuUC36eUbkVcxpYzXl74OHkrjjatWyesGFv_waE9XlVQz6DnUE3QOGRiE-Q8Hf_vJnR8vg=w408-h906-k-no",
+    "kgmid": "/g/1hc5xcd1f",
+    "emails": [],
+    "phones": [],
+    "phonesUncertain": [],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [],
+    "facebooks": [],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia Guareña",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "C. de Guareña, 8, Latina, 28044 Madrid, España",
+    "neighborhood": "Latina",
+    "street": "C. de Guareña, 8",
+    "city": "Madrid",
+    "postalCode": "28044",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "website": "http://www.farmaciaencasaonline.es/",
+    "phone": "+34 917 05 27 99",
+    "phoneUnformatted": "+34917052799",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.388217,
+      "lng": -3.7661239
+    },
+    "totalScore": 3.9,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJzzbzU0CIQQ0RWym_k-GxmAo",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd41884053f336cf:0xa98b1e193bf295b",
+    "cid": "763555719243835739",
+    "reviewsCount": 90,
+    "reviewsDistribution": {
+      "oneStar": 14,
+      "twoStar": 2,
+      "threeStar": 6,
+      "fourStar": 22,
+      "fiveStar": 46
+    },
+    "imagesCount": 12,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:02.395Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "lunes",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9:30 AM to 9:30 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Opciones de servicio": [
+        {
+          "Entrega a domicilio": true
+        },
+        {
+          "Retiro en tienda": true
+        }
+      ],
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        },
+        {
+          "Estacionamiento accesible para personas en silla de ruedas": true
+        }
+      ],
+      "Qué ofrece": [
+        {
+          "Desecho de medicaciones": true
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        },
+        {
+          "Tarjetas de crédito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Guare%C3%B1a&query_place_id=ChIJzzbzU0CIQQ0RWym_k-GxmAo",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 55,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipOOq4hZVsdv2mEozOeJzHeq1eAey7_ktnrsU3vN=w408-h306-k-no",
+    "kgmid": "/g/1tkf28g9",
+    "domain": "farmaciaencasaonline.es",
+    "scrapedUrls": [
+      "https://www.farmaciaencasaonline.es/",
+      "https://www.farmaciaencasaonline.es/mustela-mochila-family-adventures-terracota-4-productos.html",
+      "https://www.farmaciaencasaonline.es/contact/",
+      "https://www.farmaciaencasaonline.es/mustela-mochila-family-adventures-verde-4-productos.html",
+      "https://www.farmaciaencasaonline.es/farmacia-en-casa-online-direcciones-de-contacto"
+    ],
+    "depth": 0,
+    "emails": [
+      "info@farmaciaencasaonline.es"
+    ],
+    "phones": [
+      "+34917553841"
+    ],
+    "phonesUncertain": [
+      "917553841",
+      "2006-2023",
+      "20 28024",
+      "608-39-68-57",
+      "91-755-38-41"
+    ],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [
+      "https://www.instagram.com/farmaciaencasaonline"
+    ],
+    "facebooks": [
+      "https://www.facebook.com/farmaciaencasaonline"
+    ],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "snapchats": [],
+    "threads": [],
+    "telegrams": [],
+    "reddits": [],
+    "whatsapps": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia David Estevez",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "C. Garrovillas, 6, Latina, 28044 Madrid, España",
+    "neighborhood": "Latina",
+    "street": "C. Garrovillas, 6",
+    "city": "Madrid",
+    "postalCode": "28044",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "website": "http://www.farmaciaestevez.com/",
+    "phone": "+34 917 05 00 14",
+    "phoneUnformatted": "+34917050014",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.3797941,
+      "lng": -3.7787595
+    },
+    "totalScore": 4.9,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJ2aO4qVCIQQ0RE2HZCvTvx9k",
+    "categories": [
+      "Farmacia",
+      "Tienda de belleza y salud",
+      "Tienda de artículos ortopédicos"
+    ],
+    "fid": "0xd418850a9b8a3d9:0xd9c7eff40ad96113",
+    "cid": "15692775258028859667",
+    "reviewsCount": 125,
+    "imagesCount": 5,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:00.234Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9:30 AM to 9 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9:30 AM to 9 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9:30 AM to 9 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "9:30 AM to 2:30 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "Cerrado"
+      },
+      {
+        "day": "lunes",
+        "hours": "9:30 AM to 9 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9:30 AM to 9 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Opciones de servicio": [
+        {
+          "Entrega a domicilio": true
+        },
+        {
+          "Retiro en tienda": true
+        }
+      ],
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        },
+        {
+          "Tarjetas de crédito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20David%20Estevez&query_place_id=ChIJ2aO4qVCIQQ0RE2HZCvTvx9k",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 17,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSz5TyYWAn5oVyqa0xtNNrvlOEW4gp9xkUbtzUq2FPToP0EUVB0jyNW9zg7QwcJ9W-HrQbxpHwIdf1eRF2JAcOURp2AGoNnVKFBQgjgHwbZamonJd6AxGn6lplFkBSyAqxMvdNUckw=w426-h240-k-no",
+    "kgmid": "/g/1q5bn79h7",
+    "domain": "farmaciaestevez.com",
+    "scrapedUrls": [
+      "https://farmaciaestevez.com/",
+      "https://farmaciaestevez.com/23-lentes-de-contacto",
+      "https://farmaciaestevez.com/",
+      "https://farmaciaestevez.com/contactanos",
+      "https://farmaciaestevez.com/197-tratamiento-callos-"
+    ],
+    "depth": 0,
+    "emails": [],
+    "phones": [
+      "619854842"
+    ],
+    "phonesUncertain": [
+      "1556006532",
+      "619854842"
+    ],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [],
+    "facebooks": [],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "snapchats": [],
+    "threads": [],
+    "telegrams": [],
+    "reddits": [],
+    "whatsapps": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia Aravaca",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "Av. de la Osa Mayor, 96, Moncloa - Aravaca, 28023 Madrid, España",
+    "neighborhood": "Moncloa - Aravaca",
+    "street": "Av. de la Osa Mayor, 96",
+    "city": "Madrid",
+    "postalCode": "28023",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "phone": "+34 913 07 06 74",
+    "phoneUnformatted": "+34913070674",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.4594385,
+      "lng": -3.7859931
+    },
+    "totalScore": 3.8,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJR4C3EP2GQQ0RtgV9yfCC1VM",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd4186fd10b78047:0x53d582f0c97d05b6",
+    "cid": "6040878445871564214",
+    "reviewsCount": 32,
+    "reviewsDistribution": {
+      "oneStar": 7,
+      "twoStar": 2,
+      "threeStar": 0,
+      "fourStar": 3,
+      "fiveStar": 20
+    },
+    "imagesCount": 3,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:02.395Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "Cerrado"
+      },
+      {
+        "day": "lunes",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9:30 AM to 9:30 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        },
+        {
+          "Estacionamiento accesible para personas en silla de ruedas": false
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Aravaca&query_place_id=ChIJR4C3EP2GQQ0RtgV9yfCC1VM",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 47,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyFY2lZNMlc08mIsWLMjbiRLMCl-Urruv8Zf-lwkd661eJW_QiOzFbtVQd_i5EXsd_Tt1gJZLNdWrVM3clkmoiHedHgUlEIVmA6JIL-Pvpb-0TJjBUU_mWnDic2_ZdRQLccbuCB=w408-h632-k-no",
+    "kgmid": "/g/1tf7hzpr",
+    "emails": [],
+    "phones": [],
+    "phonesUncertain": [],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [],
+    "facebooks": [],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia Aparicio Grau C B",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "P.º de la Florida, 47, Moncloa - Aravaca, 28008 Madrid, España",
+    "neighborhood": "Moncloa - Aravaca",
+    "street": "P.º de la Florida, 47",
+    "city": "Madrid",
+    "postalCode": "28008",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "phone": "+34 915 47 78 29",
+    "phoneUnformatted": "+34915477829",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.4233379,
+      "lng": -3.7240018
+    },
+    "totalScore": 3.5,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJ0wzVuxIoQg0RqDWpZYn0TuE",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd422812bbd50cd3:0xe14ef48965a935a8",
+    "cid": "16235182577670501800",
+    "reviewsCount": 16,
+    "reviewsDistribution": {
+      "oneStar": 4,
+      "twoStar": 2,
+      "threeStar": 0,
+      "fourStar": 2,
+      "fiveStar": 8
+    },
+    "imagesCount": 4,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:02.394Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9:30 AM to 9 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9:30 AM to 9 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9:30 AM to 9 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "9:30 AM to 2 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "Cerrado"
+      },
+      {
+        "day": "lunes",
+        "hours": "9:30 AM to 9 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9:30 AM to 9 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Accesibilidad": [
+        {
+          "Estacionamiento accesible para personas en silla de ruedas": false
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Aparicio%20Grau%20C%20B&query_place_id=ChIJ0wzVuxIoQg0RqDWpZYn0TuE",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 43,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzIYZn7Sx4mZpegDHrLaDTSdpMC3K3ynjwPCEKX-IyPvZ0hMJe6fuSsSOK5qt9_d8nrcs_RrFzZk0RRF0VPj4hkOsmmG7U874Rj0FlSAd-MyBiIfyhO6IRg2cfJaOiEV7cw6BbH_w=w408-h544-k-no",
+    "kgmid": "/g/1q5bp74bk",
+    "emails": [],
+    "phones": [],
+    "phonesUncertain": [],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [],
+    "facebooks": [],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia Pabón Torres - Parafarmacia en Madrid Río",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "C. de Caramuel, 38, Latina, 28011 Madrid, España",
+    "neighborhood": "Latina",
+    "street": "C. de Caramuel, 38",
+    "city": "Madrid",
+    "postalCode": "28011",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "website": "http://www.farmaciapabon.es/",
+    "phone": "+34 914 63 74 30",
+    "phoneUnformatted": "+34914637430",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.4099962,
+      "lng": -3.7280174
+    },
+    "totalScore": 3.9,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJ56cmhOEnQg0REbMcIqBW1dQ",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd4227e18426a7e7:0xd4d556a0221cb311",
+    "cid": "15336259351847154449",
+    "reviewsCount": 99,
+    "reviewsDistribution": {
+      "oneStar": 21,
+      "twoStar": 3,
+      "threeStar": 5,
+      "fourStar": 2,
+      "fiveStar": 68
+    },
+    "imagesCount": 272,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:02.395Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9 AM to 9 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9 AM to 9 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9 AM to 9 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "10 AM to 2 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "Cerrado"
+      },
+      {
+        "day": "lunes",
+        "hours": "9 AM to 9 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9 AM to 9 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Opciones de servicio": [
+        {
+          "Entrega a domicilio": true
+        }
+      ],
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        },
+        {
+          "Estacionamiento accesible para personas en silla de ruedas": false
+        }
+      ],
+      "Público usual": [
+        {
+          "Amigable con LGBTQ+": true
+        },
+        {
+          "Espacio seguro para personas transgénero": true
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        },
+        {
+          "Tarjetas de crédito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Pab%C3%B3n%20Torres%20-%20Parafarmacia%20en%20Madrid%20R%C3%ADo&query_place_id=ChIJ56cmhOEnQg0REbMcIqBW1dQ",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 50,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPU5Pd--5pRvZgdiO5STEexUEvfek8AzvzQCy4j=w408-h257-k-no",
+    "kgmid": "/g/1vfzggcm",
+    "domain": "farmaciapabon.es",
+    "scrapedUrls": [
+      "https://farmaciapabon.es/",
+      "https://farmaciapabon.es/nosotros/",
+      "https://farmaciapabon.es/servicios/",
+      "https://farmaciapabon.es/",
+      "https://farmaciapabon.es/contacto/"
+    ],
+    "depth": 0,
+    "emails": [
+      "farmaciapabon@outlook.es"
+    ],
+    "phones": [
+      "647359576"
+    ],
+    "phonesUncertain": [
+      "647359576",
+      "+34647359576"
+    ],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [],
+    "facebooks": [],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "snapchats": [],
+    "threads": [],
+    "telegrams": [],
+    "reddits": [],
+    "whatsapps": [
+      "wa.me/+34647359576",
+      "https://wa.me/+34647359576"
+    ],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia Tucán 9 Farmacia 12 horas, Dermocosmética Natural en Madrid",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "C. de Tucán, 9, Carabanchel, 28025 Madrid, España",
+    "neighborhood": "Carabanchel",
+    "street": "C. de Tucán, 9",
+    "city": "Madrid",
+    "postalCode": "28025",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "website": "http://www.farmaciatucan7.net/",
+    "phone": "+34 914 65 02 40",
+    "phoneUnformatted": "+34914650240",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.3900862,
+      "lng": -3.7395164
+    },
+    "totalScore": 4.7,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJ-9ASXYsnQg0RfFGwLGIy7aY",
+    "categories": [
+      "Farmacia",
+      "Tienda de belleza y salud"
+    ],
+    "fid": "0xd42278b5d12d0fb:0xa6ed32622cb0517c",
+    "cid": "12028325577014399356",
+    "reviewsCount": 161,
+    "reviewsDistribution": {
+      "oneStar": 9,
+      "twoStar": 0,
+      "threeStar": 1,
+      "fourStar": 4,
+      "fiveStar": 147
+    },
+    "imagesCount": 439,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:02.395Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "Cerrado"
+      },
+      {
+        "day": "lunes",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9:30 AM to 9:30 PM"
+      }
+    ],
+    "additionalOpeningHours": {
+      "Retiro": [
+        {
+          "day": "miércoles",
+          "hours": "9:30 a.m.–9:30 p.m."
+        },
+        {
+          "day": "jueves",
+          "hours": "9:30 a.m.–9:30 p.m."
+        },
+        {
+          "day": "viernes",
+          "hours": "9:30 a.m.–9:30 p.m."
+        },
+        {
+          "day": "sábado",
+          "hours": "9:30 a.m.–9:30 p.m."
+        },
+        {
+          "day": "domingo",
+          "hours": "Cerrado"
+        },
+        {
+          "day": "lunes",
+          "hours": "9:30 a.m.–9:30 p.m."
+        },
+        {
+          "day": "martes",
+          "hours": "9:30 a.m.–9:30 p.m."
+        }
+      ]
+    },
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Ayuda de emergencia": [
+        {
+          "Acepta donaciones": true
+        }
+      ],
+      "Opciones de servicio": [
+        {
+          "Retiro en tienda": true
+        },
+        {
+          "Compras en tienda": true
+        },
+        {
+          "Español": true
+        }
+      ],
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        }
+      ],
+      "Público usual": [
+        {
+          "Amigable con LGBTQ+": true
+        },
+        {
+          "Espacio seguro para personas transgénero": true
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        },
+        {
+          "Tarjetas de crédito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Tuc%C3%A1n%209%20Farmacia%2012%20horas%2C%20Dermocosm%C3%A9tica%20Natural%20en%20Madrid&query_place_id=ChIJ-9ASXYsnQg0RfFGwLGIy7aY",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 49,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPyxjpjTtWJPt8giRDqjTgDgeYK_V_iN97IWakZ=w408-h272-k-no",
+    "kgmid": "/g/1pp2vcs6h",
+    "domain": "farmaciatucan7.net",
+    "scrapedUrls": [
+      "https://www.farmaciatucan7.net/",
+      "https://www.farmaciatucan7.net/",
+      "https://www.farmaciatucan7.net/farmacia-online-madrid",
+      "https://www.farmaciatucan7.net/contacto-farmacia",
+      "https://www.farmaciatucan7.net/blog-farmacia"
+    ],
+    "depth": 0,
+    "emails": [
+      "info@farmaciatucan7.com"
+    ],
+    "phones": [
+      "914650240"
+    ],
+    "phonesUncertain": [
+      "914 650 240",
+      "914650240",
+      "616 477 470"
+    ],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [
+      "https://www.instagram.com/farmaciatucan9"
+    ],
+    "facebooks": [
+      "https://www.facebook.com/farmaciatucan7.es"
+    ],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "snapchats": [],
+    "threads": [],
+    "telegrams": [],
+    "reddits": [],
+    "whatsapps": [
+      "https://api.whatsapp.com/send?phone=34616477470"
+    ],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia Alfonso Ibañez Pinto. Farmacia 15 horas en Madrid. Parafarmacia.",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "C. de la Oca, 17, Carabanchel, 28025 Madrid, España",
+    "neighborhood": "Carabanchel",
+    "street": "C. de la Oca, 17",
+    "city": "Madrid",
+    "postalCode": "28025",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "phone": "+34 914 71 47 73",
+    "phoneUnformatted": "+34914714773",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.3895341,
+      "lng": -3.7343765
+    },
+    "totalScore": 3.2,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJmaM6co0nQg0R1FWIVUGYeRY",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd42278d723aa399:0x16799841558855d4",
+    "cid": "1619492947391698388",
+    "reviewsCount": 105,
+    "reviewsDistribution": {
+      "oneStar": 39,
+      "twoStar": 2,
+      "threeStar": 7,
+      "fourStar": 10,
+      "fiveStar": 47
+    },
+    "imagesCount": 25,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:01.178Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "8:30 AM to 11 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "8:30 AM to 11 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "8:30 AM to 11 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "8:30 AM to 11 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "8:30 AM to 11 PM"
+      },
+      {
+        "day": "lunes",
+        "hours": "8:30 AM to 11 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "8:30 AM to 11 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        },
+        {
+          "Espacio accesible para personas en silla de ruedas": true
+        },
+        {
+          "Sanitarios accesibles para personas en silla de ruedas": true
+        },
+        {
+          "Estacionamiento accesible para personas en silla de ruedas": false
+        }
+      ],
+      "Público usual": [
+        {
+          "Amigable con LGBTQ+": true
+        },
+        {
+          "Espacio seguro para personas transgénero": true
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        },
+        {
+          "Tarjetas de crédito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Alfonso%20Iba%C3%B1ez%20Pinto.%20Farmacia%2015%20horas%20en%20Madrid.%20Parafarmacia.&query_place_id=ChIJmaM6co0nQg0R1FWIVUGYeRY",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 29,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPqm1JJXpvpimXKUuBHKn6B_vD7YaQ7NNhjEH8x=w408-h306-k-no",
+    "kgmid": "/g/11g68ybll0",
+    "emails": [],
+    "phones": [],
+    "phonesUncertain": [],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [],
+    "facebooks": [],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia Trébol Paseo de Extremadura",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "P.º de Extremadura, 124, Latina, 28011 Madrid, España",
+    "neighborhood": "Latina",
+    "street": "P.º de Extremadura, 124",
+    "city": "Madrid",
+    "postalCode": "28011",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "website": "http://www.farmaciaextremadura124.com/",
+    "phone": "+34 914 63 11 94",
+    "phoneUnformatted": "+34914631194",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.411454,
+      "lng": -3.735107
+    },
+    "totalScore": 3.6,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJFfMBZ_0nQg0RXUthasuhprI",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd4227fd6701f315:0xb2a6a1cb6a614b5d",
+    "cid": "12873154479920335709",
+    "reviewsCount": 182,
+    "reviewsDistribution": {
+      "oneStar": 58,
+      "twoStar": 2,
+      "threeStar": 4,
+      "fourStar": 10,
+      "fiveStar": 108
+    },
+    "imagesCount": 26,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:01.177Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "8:30 AM to 11 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "8:30 AM to 11 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "8:30 AM to 11 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "8:30 AM to 11 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "8:30 AM to 11 PM"
+      },
+      {
+        "day": "lunes",
+        "hours": "8:30 AM to 11 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "8:30 AM to 11 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Opciones de servicio": [
+        {
+          "Retiro en tienda": true
+        },
+        {
+          "Compras en tienda": true
+        },
+        {
+          "Entrega a domicilio": false
+        }
+      ],
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        },
+        {
+          "Estacionamiento accesible para personas en silla de ruedas": false
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Tr%C3%A9bol%20Paseo%20de%20Extremadura&query_place_id=ChIJFfMBZ_0nQg0RXUthasuhprI",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 26,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyL87J2efTuwLKF3aJVnFHnA3U0p-qyZdw6hleA5jkTx635kTjbVOs3-0kWScLxus9NnvJ-m5hqvTkYuJgFPUcCIysVrYsBjiGT3El6mO-WHIKtLoTxlyPWUh-xsrANQqZsFi0=w408-h725-k-no",
+    "kgmid": "/g/1vlk2w4p",
+    "emails": [],
+    "phones": [],
+    "phonesUncertain": [],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [],
+    "facebooks": [],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia Ortopedia",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "C. de Cebreros, 30, Latina, 28011 Madrid, España",
+    "neighborhood": "Latina",
+    "street": "C. de Cebreros, 30",
+    "city": "Madrid",
+    "postalCode": "28011",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "website": "https://www.farmaciacebreros30.com/",
+    "phone": "+34 914 64 13 47",
+    "phoneUnformatted": "+34914641347",
+    "claimThisBusiness": true,
+    "location": {
+      "lat": 40.4050803,
+      "lng": -3.7443579
+    },
+    "totalScore": 3.3,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJ12BXbAKIQQ0RC9rsEjJOhas",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd4188026c5760d7:0xab854e3212ecda0b",
+    "cid": "12359370729361037835",
+    "reviewsCount": 82,
+    "reviewsDistribution": {
+      "oneStar": 30,
+      "twoStar": 2,
+      "threeStar": 3,
+      "fourStar": 7,
+      "fiveStar": 40
+    },
+    "imagesCount": 2,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:01.178Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9:30 AM to 10:45 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9:30 AM to 10:45 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9:30 AM to 10:45 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "9:30 AM to 10:45 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "9:30 AM to 10:45 PM"
+      },
+      {
+        "day": "lunes",
+        "hours": "9:30 AM to 10:45 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9:30 AM to 10:45 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Ortopedia&query_place_id=ChIJ12BXbAKIQQ0RC9rsEjJOhas",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 35,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxOHoOUxVtHM7MCebdnwLBqO191X24h5tla2-oR-BpS5yDZzqNFN-lV9bAiIckqWXwYtGPaSyasf0EWI0Suz4Az6YoUlX6XMw18LJl6pYOoe5mNLtFC-un99LBuLD9hfYhOXyv9=w408-h306-k-no",
+    "kgmid": "/g/11c575qjxj",
+    "domain": "farmaciacebreros30.com",
+    "scrapedUrls": [
+      "https://www.farmaciacebreros30.com/",
+      "https://www.farmaciacebreros30.com/notizie.jsp",
+      "https://www.farmaciacebreros30.com/offerte.jsp",
+      "https://www.farmaciacebreros30.com/contatti.jsp",
+      "https://www.farmaciacebreros30.com/servizi.jsp"
+    ],
+    "depth": 0,
+    "emails": [
+      "farmaciacebreros@gmail.com"
+    ],
+    "phones": [],
+    "phonesUncertain": [
+      "914641347",
+      "30 28011",
+      "05253645",
+      "+34 91464134"
+    ],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [],
+    "facebooks": [],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "snapchats": [],
+    "threads": [],
+    "telegrams": [],
+    "reddits": [],
+    "whatsapps": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia Central Campamento",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "Av. del Padre Piquer, 8, Latina, 28024 Madrid, España",
+    "neighborhood": "Latina",
+    "street": "Av. del Padre Piquer, 8",
+    "city": "Madrid",
+    "postalCode": "28024",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "phone": "+34 917 11 34 42",
+    "phoneUnformatted": "+34917113442",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.3944399,
+      "lng": -3.7684233
+    },
+    "totalScore": 3.1,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJf7nf52uIQQ0Rj9WGe2nu-II",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd41886be7dfb97f:0x82f8ee697b86d58f",
+    "cid": "9437555155966285199",
+    "reviewsCount": 69,
+    "imagesCount": 14,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:00.234Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "lunes",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9:30 AM to 11 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Opciones de servicio": [
+        {
+          "Entrega a domicilio": true
+        },
+        {
+          "Compras en tienda": true
+        }
+      ],
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        },
+        {
+          "Tarjetas de crédito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Central%20Campamento&query_place_id=ChIJf7nf52uIQQ0Rj9WGe2nu-II",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 14,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxYWWAVi7C5A-I5XVt84MOuigzBJ4Vs1MfRa9s6ngc6FD-xR3ZzGuQeikO29-Xoqp1lSsFDbfdLyNeY2nWsdY5If4iXjyMPQPI3xfkC-Ms59uq97d407aaw6k7UyYjfUeYWp3d7=w426-h240-k-no",
+    "kgmid": "/g/1pp2vjr4b",
+    "emails": [],
+    "phones": [],
+    "phonesUncertain": [],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [],
+    "facebooks": [],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia El Barrial Aravaca | 13,5h 365 días al año",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "Calle Dr. Balmis, 36, Moncloa - Aravaca, 28023 Madrid, España",
+    "neighborhood": "Moncloa - Aravaca",
+    "street": "Calle Dr. Balmis, 36",
+    "city": "Madrid",
+    "postalCode": "28023",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "phone": "+34 910 57 27 95",
+    "phoneUnformatted": "+34910572795",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.4589667,
+      "lng": -3.7959011
+    },
+    "totalScore": 4.1,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJY7fgpGSHQQ0RBBOmJi2yraw",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd418764a4e0b763:0xacadb22d26a61304",
+    "cid": "12442797252486238980",
+    "reviewsCount": 36,
+    "imagesCount": 7,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:00.234Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "lunes",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9:30 AM to 11 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        },
+        {
+          "Tarjetas de crédito": true
+        }
+      ],
+      "Estacionamiento": [
+        {
+          "Estacionamiento gratuito en la calle": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20El%20Barrial%20Aravaca%20%7C%2013%2C5h%20365%20d%C3%ADas%20al%20a%C3%B1o&query_place_id=ChIJY7fgpGSHQQ0RBBOmJi2yraw",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 12,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipNXvRldtQBBTRTrjRgPJ9WU41jBeklkGmMF2FdG=w408-h306-k-no",
+    "kgmid": "/g/11rjk935jp",
+    "emails": [],
+    "phones": [],
+    "phonesUncertain": [],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [],
+    "facebooks": [],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia Talgo 365 días 12 horas",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "Av. del Talgo, 206, Moncloa - Aravaca, 28023 Madrid, España",
+    "neighborhood": "Moncloa - Aravaca",
+    "street": "Av. del Talgo, 206",
+    "city": "Madrid",
+    "postalCode": "28023",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "website": "http://www.farmaciatalgo.com/",
+    "phone": "+34 913 57 92 41",
+    "phoneUnformatted": "+34913579241",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.4478468,
+      "lng": -3.7845674
+    },
+    "totalScore": 3.8,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJ7UnN0VSGQQ0Rq15J09rACfc",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd418654d1cd49ed:0xf709c0dad3495eab",
+    "cid": "17800971048238800555",
+    "reviewsCount": 51,
+    "imagesCount": 24,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:00.234Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9 AM to 9:30 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9 AM to 9:30 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9 AM to 9:30 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "9 AM to 9:30 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "9 AM to 9:30 PM"
+      },
+      {
+        "day": "lunes",
+        "hours": "9 AM to 9:30 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9 AM to 9:30 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Opciones de servicio": [
+        {
+          "Entrega a domicilio": true
+        }
+      ],
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        }
+      ],
+      "Qué ofrece": [
+        {
+          "Desecho de medicaciones": true
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        },
+        {
+          "Tarjetas de crédito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Talgo%20365%20d%C3%ADas%2012%20horas&query_place_id=ChIJ7UnN0VSGQQ0Rq15J09rACfc",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 13,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipOrdYdUUxODKNpk9bm1I9g4DVamaTkTsVZVGslZ=w408-h544-k-no",
+    "kgmid": "/g/1tmqhhpy",
+    "domain": "farmaciatalgo.com",
+    "scrapedUrls": [
+      "http://www.farmaciatalgo.com/",
+      "http://www.farmaciatalgo.com/servizi.jsp",
+      "http://www.farmaciatalgo.com/offerte.jsp",
+      "http://www.farmaciatalgo.com/notizie.jsp",
+      "http://www.farmaciatalgo.com/index.jsp"
+    ],
+    "depth": 0,
+    "emails": [
+      "farmaciatalgo@gmail.com"
+    ],
+    "phones": [
+      "913579241",
+      "648468624"
+    ],
+    "phonesUncertain": [
+      "206 28023",
+      "913579241",
+      "648468624",
+      "50224120",
+      "+34 91357924"
+    ],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [],
+    "facebooks": [
+      "https://www.facebook.com/farmaciatalgo"
+    ],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "snapchats": [],
+    "threads": [],
+    "telegrams": [],
+    "reddits": [],
+    "whatsapps": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia Valdemarín 165 Lda. Matilde Maqueda Muñoz",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "Av. de Valdemarín, 165, Planta alta, Moncloa - Aravaca, 28023 Madrid, España",
+    "neighborhood": "Moncloa - Aravaca",
+    "street": "Av. de Valdemarín, 165, Planta alta",
+    "city": "Madrid",
+    "postalCode": "28023",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "website": "http://www.farmaciavaldemarin.com/",
+    "phone": "+34 913 07 08 36",
+    "phoneUnformatted": "+34913070836",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.4673373,
+      "lng": -3.7934552
+    },
+    "totalScore": 3,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJt6HFPeaGQQ0RlBp6oLb4a3w",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd4186e63dc5a1b7:0x7c6bf8b6a07a1a94",
+    "cid": "8965532946471197332",
+    "reviewsCount": 48,
+    "imagesCount": 6,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:00.234Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "lunes",
+        "hours": "9:30 AM to 11 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9:30 AM to 11 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        },
+        {
+          "Estacionamiento accesible para personas en silla de ruedas": false
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        },
+        {
+          "Tarjetas de crédito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Valdemar%C3%ADn%20165%20Lda.%20Matilde%20Maqueda%20Mu%C3%B1oz&query_place_id=ChIJt6HFPeaGQQ0RlBp6oLb4a3w",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 11,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSymjDCTWWYf-8x1xVdqFXn8q20jAUEg09l8DUwtD85qdxWeLv0XZm42yYg7ELEk7DBa7w4MD92wKtMgbLkeov-6Z7GY2Vt8Ar9cV9iysYlmaJWj7X3Na5tm33mjUZJ5LxMVAUY=w408-h306-k-no",
+    "kgmid": "/g/1tdphhll",
+    "domain": "farmaciavaldemarin.com",
+    "scrapedUrls": [
+      "https://farmaciavaldemarin.com/"
+    ],
+    "depth": 0,
+    "emails": [],
+    "phones": [],
+    "phonesUncertain": [],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [
+      "https://instagram.com/farmaciavaldemarin"
+    ],
+    "facebooks": [],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "snapchats": [],
+    "threads": [],
+    "telegrams": [],
+    "reddits": [],
+    "whatsapps": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia Aluche 24h",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "Farmacia Aluche 24h, Plaza de Aluche, Av. de los Poblados, 58, Centro Comercial, Latina, 28044 Madrid, España",
+    "neighborhood": "Latina",
+    "street": "Farmacia Aluche 24h, Plaza de Aluche, Av. de los Poblados, 58, Centro Comercial",
+    "city": "Madrid",
+    "postalCode": "28044",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "website": "http://www.farmacialuche24h.com/",
+    "phone": "+34 915 09 43 89",
+    "phoneUnformatted": "+34915094389",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.3857719,
+      "lng": -3.7648512
+    },
+    "totalScore": 3.6,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJpytNsUCIQQ0RSWs_hFJU_Qw",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd418840b14d2ba7:0xcfd5452843f6b49",
+    "cid": "935997010945731401",
+    "reviewsCount": 471,
+    "reviewsDistribution": {
+      "oneStar": 131,
+      "twoStar": 12,
+      "threeStar": 20,
+      "fourStar": 59,
+      "fiveStar": 249
+    },
+    "imagesCount": 55,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:01.177Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "Abierto las 24 horas"
+      },
+      {
+        "day": "jueves",
+        "hours": "Abierto las 24 horas"
+      },
+      {
+        "day": "viernes",
+        "hours": "Abierto las 24 horas"
+      },
+      {
+        "day": "sábado",
+        "hours": "Abierto las 24 horas"
+      },
+      {
+        "day": "domingo",
+        "hours": "Abierto las 24 horas"
+      },
+      {
+        "day": "lunes",
+        "hours": "Abierto las 24 horas"
+      },
+      {
+        "day": "martes",
+        "hours": "Abierto las 24 horas"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Opciones de servicio": [
+        {
+          "Compras en tienda": true
+        },
+        {
+          "Entrega a domicilio": false
+        }
+      ],
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        },
+        {
+          "Estacionamiento accesible para personas en silla de ruedas": true
+        },
+        {
+          "Espacio accesible para personas en silla de ruedas": false
+        },
+        {
+          "Sanitarios accesibles para personas en silla de ruedas": false
+        }
+      ],
+      "Qué ofrece": [
+        {
+          "Desecho de medicaciones": true
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Aluche%2024h&query_place_id=ChIJpytNsUCIQQ0RSWs_hFJU_Qw",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 22,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzCtRfnNg58cxg-kQTOwBejhlSfFHvVM67Ztg0WHxO7KkHnVnDHCCnSIcoNspyD9qcIxm4x3xwJTChz4D6WerKQ03LC-IGwrp7cvA44Ro08HbYtrvclOh042FAPEqy_v2CHv0ZGIA=w408-h437-k-no",
+    "kgmid": "/g/1ptx5rz79",
+    "domain": "farmacialuche24h.com",
+    "scrapedUrls": [
+      "https://www.farmacialuche24h.com/",
+      "https://www.farmacialuche24h.com/contactar",
+      "https://www.farmacialuche24h.com/ortopedia/pie/callos",
+      "https://www.farmacialuche24h.com/marca/estel-farma",
+      "https://www.farmacialuche24h.com/ortopedia/mujer/medias-embarazo"
+    ],
+    "depth": 0,
+    "emails": [
+      "consultas@farmacialuche24h.es"
+    ],
+    "phones": [
+      "915094389",
+      "669068568",
+      "+34915094389"
+    ],
+    "phonesUncertain": [
+      "1722599025",
+      "91 509 43 89",
+      "669068568",
+      "5327333",
+      "669 068 568"
+    ],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [
+      "https://instagram.com/farmacialuche24h"
+    ],
+    "facebooks": [
+      "https://facebook.com/farmacialuche24h"
+    ],
+    "youtubes": [],
+    "tiktoks": [
+      "https://www.tiktok.com/@farmacia.aluche.2"
+    ],
+    "pinterests": [],
+    "discords": [],
+    "snapchats": [],
+    "threads": [],
+    "telegrams": [],
+    "reddits": [],
+    "whatsapps": [
+      "https://wa.me/34669068568"
+    ],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia Constelación en avenida europa, Pozuelo de Alarcón",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "Av. de Europa, 23, Local 6A, 28224 Pozuelo de Alarcón, Madrid, España",
+    "neighborhood": null,
+    "street": "Av. de Europa, 23, Local 6A",
+    "city": "Pozuelo de Alarcón",
+    "postalCode": "28224",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "website": "http://www.farmaciaconstelacion.com/",
+    "phone": "+34 917 18 41 34",
+    "phoneUnformatted": "+34917184134",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.4429496,
+      "lng": -3.7851412
+    },
+    "totalScore": 3.3,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJras031KGQQ0RdzTVV-x4hgM",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd418652df34abad:0x38678ec57d53477",
+    "cid": "254023385474217079",
+    "reviewsCount": 59,
+    "reviewsDistribution": {
+      "oneStar": 25,
+      "twoStar": 0,
+      "threeStar": 0,
+      "fourStar": 2,
+      "fiveStar": 32
+    },
+    "imagesCount": 4,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:02.394Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "lunes",
+        "hours": "9:30 AM to 9:30 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9:30 AM to 9:30 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Opciones de servicio": [
+        {
+          "Entrega a domicilio": true
+        },
+        {
+          "Compras en tienda": true
+        }
+      ],
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        },
+        {
+          "Estacionamiento accesible para personas en silla de ruedas": true
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        },
+        {
+          "Tarjetas de crédito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Constelaci%C3%B3n%20en%20avenida%20europa%2C%20Pozuelo%20de%20Alarc%C3%B3n&query_place_id=ChIJras031KGQQ0RdzTVV-x4hgM",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 45,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipOpMFh9TOEchwGSxAp437Xh65wm58U6cgYKXGL5=w443-h240-k-no",
+    "kgmid": "/g/11c3mtfjjk",
+    "domain": "farmaciaconstelacion.eu",
+    "scrapedUrls": [
+      "https://farmaciaconstelacion.eu/",
+      "https://farmaciaconstelacion.eu/farmacia",
+      "https://farmaciaconstelacion.eu/contacto",
+      "https://farmaciaconstelacion.eu/contacto",
+      "https://farmaciaconstelacion.eu/"
+    ],
+    "depth": 0,
+    "emails": [
+      "info@farmaciaconstelacion.com"
+    ],
+    "phones": [],
+    "phonesUncertain": [
+      "689 34 37 96",
+      "91 088 35 40",
+      "91 088 35 40689",
+      "686 34 37 96"
+    ],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [
+      "https://www.instagram.com/farmaciaconstelacion"
+    ],
+    "facebooks": [],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "snapchats": [],
+    "threads": [],
+    "telegrams": [],
+    "reddits": [],
+    "whatsapps": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia Victoria Caro",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "Av. de Europa, 30, Moncloa - Aravaca, 28023 Madrid, España",
+    "neighborhood": "Moncloa - Aravaca",
+    "street": "Av. de Europa, 30",
+    "city": "Madrid",
+    "postalCode": "28023",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "website": "https://www.farmaciavictoriacaro.es/",
+    "phone": "+34 913 51 33 12",
+    "phoneUnformatted": "+34913513312",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.445316,
+      "lng": -3.784658
+    },
+    "totalScore": 3.6,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJyb-8WlOGQQ0RR1pDqnWUfhs",
+    "categories": [
+      "Farmacia"
+    ],
+    "fid": "0xd4186535abcbfc9:0x1b7e9475aa435a47",
+    "cid": "1981184119178222151",
+    "reviewsCount": 47,
+    "imagesCount": 15,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:00.233Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "9 AM to 10 PM"
+      },
+      {
+        "day": "jueves",
+        "hours": "9 AM to 10 PM"
+      },
+      {
+        "day": "viernes",
+        "hours": "9 AM to 10 PM"
+      },
+      {
+        "day": "sábado",
+        "hours": "9 AM to 10 PM"
+      },
+      {
+        "day": "domingo",
+        "hours": "9 AM to 10 PM"
+      },
+      {
+        "day": "lunes",
+        "hours": "9 AM to 10 PM"
+      },
+      {
+        "day": "martes",
+        "hours": "9 AM to 10 PM"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Victoria%20Caro&query_place_id=ChIJyb-8WlOGQQ0RR1pDqnWUfhs",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 3,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMXE54wWzq0AolOBsUy5HIhUTwoabg7ix7Uwogw=w408-h271-k-no",
+    "kgmid": "/g/1tm0d358",
+    "domain": "farmaciavictoriacaro.es",
+    "scrapedUrls": [
+      "https://farmaciavictoriacaro.es/",
+      "https://farmaciavictoriacaro.es/iniciar-sesion?create_account=1",
+      "https://farmaciavictoriacaro.es/iniciar-sesion?back=my-account",
+      "https://farmaciavictoriacaro.es/contactenos",
+      "https://farmaciavictoriacaro.es/97-medias-de-compresion"
+    ],
+    "depth": 0,
+    "emails": [
+      "info@farmaciavictoriacaro.com",
+      "info@farmaciavictoriacaro.es"
+    ],
+    "phones": [
+      "913513312"
+    ],
+    "phonesUncertain": [
+      "913513312",
+      "3028223"
+    ],
+    "linkedIns": [],
+    "twitters": [
+      "https://twitter.com/farmaciavictori"
+    ],
+    "instagrams": [],
+    "facebooks": [
+      "facebook.com/farmacia.victoriacaro"
+    ],
+    "youtubes": [
+      "https://www.youtube.com/channel/UCEu90vCR3UzXBr14H_NeAYA"
+    ],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "snapchats": [],
+    "threads": [],
+    "telegrams": [],
+    "reddits": [],
+    "whatsapps": [],
+    "reviews": null,
+    "leadsEnrichment": []
+  },
+  {
+    "title": "Farmacia Sada",
+    "price": null,
+    "categoryName": "Farmacia",
+    "address": "C. de Blanca de Castilla, 11, Moncloa - Aravaca, 28023 Madrid, España",
+    "neighborhood": "Moncloa - Aravaca",
+    "street": "C. de Blanca de Castilla, 11",
+    "city": "Madrid",
+    "postalCode": "28023",
+    "state": "Madrid",
+    "countryCode": "ES",
+    "website": "https://farmaciasadamadrid.es/",
+    "phone": "+34 650 28 84 97",
+    "phoneUnformatted": "+34650288497",
+    "claimThisBusiness": false,
+    "location": {
+      "lat": 40.465736,
+      "lng": -3.7835408
+    },
+    "totalScore": 4,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJtYpd5B2HQQ0RhmBJ5Zfwz7Q",
+    "categories": [
+      "Farmacia",
+      "Tienda de comestibles, periódicos y medicamentos",
+      "Tienda de belleza y salud"
+    ],
+    "fid": "0xd41871de45d8ab5:0xb4cff097e5496086",
+    "cid": "13028896782183653510",
+    "reviewsCount": 127,
+    "reviewsDistribution": {
+      "oneStar": 25,
+      "twoStar": 4,
+      "threeStar": 2,
+      "fourStar": 8,
+      "fiveStar": 88
+    },
+    "imagesCount": 23,
+    "imageCategories": [],
+    "scrapedAt": "2026-01-07T19:48:01.179Z",
+    "googleFoodUrl": null,
+    "hotelAds": [],
+    "openingHours": [
+      {
+        "day": "miércoles",
+        "hours": "Abierto las 24 horas"
+      },
+      {
+        "day": "jueves",
+        "hours": "Abierto las 24 horas"
+      },
+      {
+        "day": "viernes",
+        "hours": "Abierto las 24 horas"
+      },
+      {
+        "day": "sábado",
+        "hours": "Abierto las 24 horas"
+      },
+      {
+        "day": "domingo",
+        "hours": "Abierto las 24 horas"
+      },
+      {
+        "day": "lunes",
+        "hours": "Abierto las 24 horas"
+      },
+      {
+        "day": "martes",
+        "hours": "Abierto las 24 horas"
+      }
+    ],
+    "peopleAlsoSearch": [],
+    "placesTags": [],
+    "reviewsTags": [],
+    "additionalInfo": {
+      "Opciones de servicio": [
+        {
+          "Retiro en tienda": true
+        }
+      ],
+      "Accesibilidad": [
+        {
+          "Entrada accesible para personas en silla de ruedas": true
+        }
+      ],
+      "Qué ofrece": [
+        {
+          "Desecho de medicaciones": true
+        }
+      ],
+      "Planificación": [
+        {
+          "Visita rápida": true
+        }
+      ],
+      "Pagos": [
+        {
+          "Pagos móviles mediante NFC": true
+        },
+        {
+          "Tarjetas de crédito": true
+        },
+        {
+          "Tarjetas de débito": true
+        },
+        {
+          "Tarjetas de crédito": true
+        }
+      ]
+    },
+    "gasPrices": [],
+    "url": "https://www.google.com/maps/search/?api=1&query=Farmacia%20Sada&query_place_id=ChIJtYpd5B2HQQ0RhmBJ5Zfwz7Q",
+    "searchPageUrl": "https://www.google.com/maps/search/farmacia/@40.42421786016433,-3.8407100211315477,13z?hl=es",
+    "searchString": "farmacia",
+    "language": "es",
+    "rank": 38,
+    "isAdvertisement": false,
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPkXzRHjapEF-xcN-qUEFl-T9GWJeXmYj4Im00t=w408-h271-k-no",
+    "kgmid": "/g/1hc7hxwd5",
+    "domain": "farmaciasadamadrid.es",
+    "scrapedUrls": [
+      "https://farmaciasadamadrid.es/",
+      "https://farmaciasadamadrid.es/contactenos",
+      "https://farmaciasadamadrid.es/95-media-larga",
+      "https://farmaciasadamadrid.es/82-lentes-de-contacto",
+      "https://farmaciasadamadrid.es/94-media-corta"
+    ],
+    "depth": 0,
+    "emails": [
+      "contacto@farmaciasadamadrid.es"
+    ],
+    "phones": [],
+    "phonesUncertain": [
+      "650 288 497",
+      "913 576 914"
+    ],
+    "linkedIns": [],
+    "twitters": [],
+    "instagrams": [],
+    "facebooks": [],
+    "youtubes": [],
+    "tiktoks": [],
+    "pinterests": [],
+    "discords": [],
+    "snapchats": [],
+    "threads": [],
+    "telegrams": [],
+    "reddits": [],
+    "whatsapps": [
+      "https://api.whatsapp.com/send?phone=34650288497"
+    ],
+    "reviews": null,
+    "leadsEnrichment": []
+  }
+]

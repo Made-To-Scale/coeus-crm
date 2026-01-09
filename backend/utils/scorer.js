@@ -8,77 +8,106 @@ function toStr(v) {
 }
 
 function scoreLead(lead) {
-    if (lead.is_closed) return { score: 0, tier: "DROP", reasons: ["closed"] };
+    if (lead.is_closed) return { score: 0, tier: "DROP", reasons: [{ reason: "Negocio cerrado", points: 0 }] };
 
     let s = 0;
     const reasons = [];
 
-    const hasEmail = !!toStr(lead.email_primary);
-    const hasWebsite = !!toStr(lead.website);
-    const hasPhone = !!toStr(lead.phone_primary);
-
-    const reviews = Number(lead.reviewsCount || 0);
-    const rating = Number(lead.totalScore || 0);
-
-    // Contactability
-    if (hasEmail) {
-        s += 35;
-        reasons.push("email:+35");
+    // 1. Email & Verification (Total 35)
+    if (lead.email_primary || lead.email) {
+        if (lead.email_verified || lead.meta?.email_verified) {
+            s += 35;
+            reasons.push({ reason: "Email Verificado", points: 35 });
+        } else {
+            s += 15;
+            reasons.push({ reason: "Email detectado", points: 15 });
+        }
     }
-    if (hasWebsite) {
+
+    // 2. Website & Health (Total 10)
+    if (lead.website && lead.website.trim() !== "") {
+        const isSocial = /instagram\.com|facebook\.com|twitter\.com|linkedin\.com|tiktok\.com|youtube\.com/i.test(lead.website);
+        if (isSocial) {
+            s += 3;
+            reasons.push({ reason: "Redes Sociales", points: 3 });
+        } else {
+            s += 10;
+            reasons.push({ reason: "Website propia", points: 10 });
+        }
+    }
+
+    // 3. Phone & WhatsApp (Total 15)
+    if (lead.phone_primary || lead.phone_number) {
+        if (lead.phone_type === 'mobile' || lead.whatsapp_likely || lead.meta?.whatsapp_likely) {
+            s += 15;
+            reasons.push({ reason: "WhatsApp (Móvil ES)", points: 15 });
+        } else {
+            s += 5;
+            reasons.push({ reason: "Teléfono fijo", points: 5 });
+        }
+    }
+
+    // 4. Social Proof: Reviews (Total 15)
+    const reviews = Number(lead.reviewsCount || lead.reviews_count || 0);
+    if (reviews >= 100) {
         s += 15;
-        reasons.push("website:+15");
-    }
-    if (hasPhone) {
-        s += 5;
-        reasons.push("phone:+5");
-    }
-
-    // Social proof
-    if (reviews >= 500) {
-        s += 20;
-        reasons.push("reviews>=500:+20");
-    } else if (reviews >= 100) {
-        s += 15;
-        reasons.push("reviews>=100:+15");
-    } else if (reviews >= 20) {
-        s += 8;
-        reasons.push("reviews>=20:+8");
-    } else if (reviews >= 1) {
-        s += 3;
-        reasons.push("reviews>=1:+3");
-    }
-
-    if (rating >= 4.8) {
+        reasons.push({ reason: "Popularidad (>100 reseñas)", points: 15 });
+    } else if (reviews >= 50) {
         s += 10;
-        reasons.push("rating>=4.8:+10");
-    } else if (rating >= 4.5) {
-        s += 7;
-        reasons.push("rating>=4.5:+7");
+        reasons.push({ reason: "Popularidad (>50 reseñas)", points: 10 });
+    } else if (reviews >= 10) {
+        s += 5;
+        reasons.push({ reason: "Popularidad (>10 reseñas)", points: 5 });
+    }
+
+    // 5. Social Proof: Rating (Total 10)
+    const rating = Number(lead.totalScore || lead.rating || 0);
+    if (rating >= 4.5) {
+        s += 10;
+        reasons.push({ reason: "Excelente Rating (>=4.5)", points: 10 });
     } else if (rating >= 4.0) {
-        s += 4;
-        reasons.push("rating>=4.0:+4");
-    } else if (rating > 0) {
-        s += 1;
-        reasons.push("rating>0:+1");
+        s += 5;
+        reasons.push({ reason: "Buen Rating (>=4.0)", points: 5 });
     }
 
-    // Ecommerce bonus (generic)
-    if (lead.ecommerce && lead.ecommerce.is_ecommerce) {
-        s += 8;
-        reasons.push("ecommerce:+8");
+    // 6. Business Info / Tech (Total 15)
+    if (lead.meta?.ai_summary_deep || lead.personalization_summary) {
+        s += 10;
+        reasons.push({ reason: "Business Intelligence", points: 10 });
     }
-
-    // WhatsApp likelihood bonus (ES mobile)
-    if (lead.whatsapp_likely) {
-        s += 6;
-        reasons.push("whatsapp_likely:+6");
+    if (lead.meta?.is_ecommerce || lead.ecommerce?.is_ecommerce) {
+        s += 5;
+        reasons.push({ reason: "E-commerce detectado", points: 5 });
     }
 
     if (s > 100) s = 100;
 
-    const tier = s >= 75 ? "A" : s >= 55 ? "B" : "C";
+    // Calculate Tier based on Premium Logic
+    const tier = calculateTier(lead);
+
     return { score: s, tier, reasons };
+}
+
+function calculateTier(lead) {
+    const hasVerifiedEmail = !!(lead.email_verified || lead.email_primary); // If we are at scraping, email exists but not verified yet
+    const isMobile = lead.phone_type === 'mobile';
+    const isLandline = lead.phone_type === 'landline';
+    const hasPhone = isMobile || isLandline;
+
+    // 1. GOLD: Verified Email + WhatsApp (Mobile)
+    if (hasVerifiedEmail && isMobile) return 'GOLD';
+
+    // 2. SILVER: Verified Email + (Fijo o Nada)
+    if (hasVerifiedEmail) return 'SILVER';
+
+    // 3. WHATSAPP: No Email + WhatsApp (Mobile)
+    if (isMobile) return 'WHATSAPP';
+
+    // 4. COLDCALL: No Email + Solo Fijo
+    if (isLandline) return 'COLDCALL';
+
+    // 5. TRASH: Nothing
+    return 'TRASH';
 }
 
 function routeLead(scoring, lead) {
@@ -90,11 +119,22 @@ function routeLead(scoring, lead) {
     };
 
     let route = "ENRICH";
-    if (scoring.tier === "DROP") route = "DROP_CLOSED";
-    else if (scoring.tier !== "C" && channel.email) route = "OUTREACH_READY";
-    else route = "ENRICH";
+
+    // TRASH logic
+    if (scoring.tier === "TRASH" || scoring.tier === "DROP") {
+        route = "DISCARDED";
+    }
+    // If it has email, it's ready for enrichment/verification
+    else if (channel.email) {
+        route = "OUTREACH_READY";
+    }
+    // If it has phone only, it's ready for manual outreach or enrichment
+    else if (channel.whatsapp || channel.phone_call) {
+        route = "OUTREACH_READY";
+    }
 
     return { route, channel };
 }
 
-module.exports = { scoreLead, routeLead };
+module.exports = { scoreLead, routeLead, calculateTier };
+

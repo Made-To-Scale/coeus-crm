@@ -1,11 +1,14 @@
-import { useState, useEffect } from 'react'
-import { LayoutDashboard, Users, Megaphone, Settings, Database, Activity, Search } from 'lucide-react'
+import { useState } from 'react'
+import { LayoutDashboard, Users, Megaphone, Settings, Database, Activity, Search, Columns, ChevronDown, ChevronRight, Mail, Phone, MessageSquare } from 'lucide-react'
 import SearchView from './components/SearchView'
-
-import { supabase } from './lib/supabaseClient'
+import PipelineView from './components/PipelineView'
+import DashboardView from './components/DashboardView'
+import LeadsView from './components/LeadsView'
+import CampaignsView from './components/CampaignsView'
 
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard')
+  const [outreachOpen, setOutreachOpen] = useState(false)
 
   const renderContent = () => {
     switch (activeTab) {
@@ -14,14 +17,19 @@ function App() {
       case 'search':
         return <SearchView />
       case 'leads':
-
         return <LeadsView />
+      case 'pipeline':
+        return <PipelineView />
       case 'campaigns':
-        return <div className="p-6"><h1 className="text-3xl font-bold text-slate-800">Campaigns</h1><p className="mt-4 text-slate-600">Setup and track outreach campaigns.</p></div>
+        return <CampaignsView />
+      case 'outreach-email':
+        return <LeadsView filterTier="GOLD" /> // Example: Filter GOLD for email
+      case 'outreach-whatsapp':
+        return <LeadsView filterTier="WHATSAPP" />
+      case 'outreach-coldcall':
+        return <LeadsView filterTier="COLDCALL" />
       case 'interactions':
         return <div className="p-6"><h1 className="text-3xl font-bold text-slate-800">Interactions</h1><p className="mt-4 text-slate-600">View all communication logs.</p></div>
-      case 'data':
-        return <div className="p-6"><h1 className="text-3xl font-bold text-slate-800">Data Sources</h1><p className="mt-4 text-slate-600">Manage scraping sources.</p></div>
       case 'settings':
         return <div className="p-6"><h1 className="text-3xl font-bold text-slate-800">Settings</h1><p className="mt-4 text-slate-600">System configuration.</p></div>
       default:
@@ -38,14 +46,60 @@ function App() {
           <p className="text-xs text-slate-500 mt-1">Outreach Intelligence</p>
         </div>
 
-        <nav className="flex-1 p-4 space-y-2">
+        <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
           <SidebarItem icon={<LayoutDashboard size={20} />} label="Dashboard" id="dashboard" activeTab={activeTab} setActiveTab={setActiveTab} />
           <SidebarItem icon={<Search size={20} />} label="Search" id="search" activeTab={activeTab} setActiveTab={setActiveTab} />
           <SidebarItem icon={<Users size={20} />} label="Leads" id="leads" activeTab={activeTab} setActiveTab={setActiveTab} />
+          <SidebarItem icon={<Columns size={20} />} label="Pipeline" id="pipeline" activeTab={activeTab} setActiveTab={setActiveTab} />
 
-          <SidebarItem icon={<Megaphone size={20} />} label="Campaigns" id="campaigns" activeTab={activeTab} setActiveTab={setActiveTab} />
+          {/* Outreach Dropdown */}
+          <div className="space-y-1">
+            <button
+              onClick={() => setOutreachOpen(!outreachOpen)}
+              className="w-full flex items-center justify-between px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg transition-colors"
+            >
+              <div className="flex items-center space-x-3">
+                <Megaphone size={20} />
+                <span className="font-medium">Outreach</span>
+              </div>
+              {outreachOpen ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+            </button>
+
+            {outreachOpen && (
+              <div className="pl-9 space-y-1 animate-in slide-in-from-top-2 duration-200">
+                <SidebarItem
+                  icon={<Mail size={16} />}
+                  label="Email" id="outreach-email"
+                  activeTab={activeTab}
+                  setActiveTab={setActiveTab}
+                  subItem
+                />
+                <SidebarItem
+                  icon={<MessageSquare size={16} />}
+                  label="WhatsApp" id="outreach-whatsapp"
+                  activeTab={activeTab}
+                  setActiveTab={setActiveTab}
+                  subItem
+                />
+                <SidebarItem
+                  icon={<Phone size={16} />}
+                  label="Cold Call" id="outreach-coldcall"
+                  activeTab={activeTab}
+                  setActiveTab={setActiveTab}
+                  subItem
+                />
+                <SidebarItem
+                  icon={<Activity size={16} />}
+                  label="Campaigns" id="campaigns"
+                  activeTab={activeTab}
+                  setActiveTab={setActiveTab}
+                  subItem
+                />
+              </div>
+            )}
+          </div>
+
           <SidebarItem icon={<Activity size={20} />} label="Interactions" id="interactions" activeTab={activeTab} setActiveTab={setActiveTab} />
-          <SidebarItem icon={<Database size={20} />} label="Data Sources" id="data" activeTab={activeTab} setActiveTab={setActiveTab} />
         </nav>
 
         <div className="p-4 border-t border-slate-800">
@@ -57,32 +111,6 @@ function App() {
       <div className="flex-1 overflow-auto">
         {renderContent()}
       </div>
-    </div>
-  )
-}
-
-function DashboardView() {
-  return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold text-slate-800">Dashboard</h1>
-      <p className="mt-4 text-slate-600">Welcome to Coeus Outreach System.</p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-        <StatCard title="Total Leads" value="0" />
-        <StatCard title="Active Campaigns" value="0" />
-        <StatCard title="Emails Sent" value="0" />
-      </div>
-    </div>
-  )
-}
-
-import LeadsView from './components/LeadsView'
-
-
-function StatCard({ title, value }) {
-  return (
-    <div className="bg-white p-6 rounded-lg shadow border border-slate-200">
-      <h3 className="text-sm font-medium text-slate-500">{title}</h3>
-      <p className="mt-2 text-3xl font-bold text-slate-800">{value}</p>
     </div>
   )
 }

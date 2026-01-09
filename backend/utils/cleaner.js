@@ -17,32 +17,88 @@ function normEmail(e) {
 
 function extractDomainFromUrl(url) {
     try {
-        const u = new URL(url);
+        let target = url;
+        if (url.includes('/url?q=') || url.includes('google.com/url?q=')) {
+            // It's a google redirect
+            const parts = url.split('q=')[1];
+            if (parts) {
+                target = decodeURIComponent(parts.split('&')[0]);
+            }
+        }
+        const u = new URL(target.startsWith('http') ? target : `https://${target}`);
         return u.hostname.replace(/^www\./, "").toLowerCase();
     } catch {
         return "";
     }
 }
 
+function cleanWebsiteUrl(url) {
+    if (!url) return "";
+    if (url.includes('/url?q=') || url.includes('google.com/url?q=')) {
+        const parts = url.split('q=')[1];
+        if (parts) {
+            return decodeURIComponent(parts.split('&')[0]);
+        }
+    }
+    return url;
+}
+
 function normalizePhone(raw) {
     const s = toStr(raw);
     if (!s) return "";
+    // Remove all non-numeric except '+'
     const cleaned = s.replace(/[^\d+]/g, "");
     if (!cleaned) return "";
+
+    // If it already has +34 or similar, keep it but ensure '+'
     if (cleaned.startsWith("+")) return cleaned;
 
     const digits = cleaned.replace(/[^\d]/g, "");
-    // ES convenience normalization when local 9 digits
-    if (digits.length === 9) return `+34${digits}`;
-    if (digits.length === 11 && digits.startsWith("34")) return `+${digits}`;
-    return digits ? `+${digits}` : "";
+
+    // Spanish normalization
+    if (digits.length === 9) {
+        // Starts with 6,7,8,9?
+        if (/^[6789]/.test(digits)) return `+34${digits}`;
+    }
+    if (digits.length === 11 && digits.startsWith("34")) {
+        return `+${digits}`;
+    }
+
+    // Fallback: just add '+' if missing and looks like it has CC, 
+    // or return as is if unsure
+    return digits.length > 6 ? `+${digits}` : digits;
+}
+
+function isSocialMedia(url) {
+    const s = toStr(url).toLowerCase();
+    return s.includes('instagram.com') ||
+        s.includes('facebook.com') ||
+        s.includes('linkedin.com') ||
+        s.includes('twitter.com') ||
+        s.includes('tiktok.com') ||
+        s.includes('t.me');
+}
+
+function isProviderDomain(domain) {
+    if (!domain) return false;
+    const providers = [
+        'wixsite.com', 'myshopify.com', 'squarespace.com', 'wordpress.com',
+        'weebly.com', 'jimdo.com', 'strikingly.com', 'webflow.io',
+        'google.com', 'site123.me', 'bit.ly', 'linktr.ee'
+    ];
+    return providers.some(p => domain.endsWith(p));
 }
 
 function pickPrimaryEmail(emails, domain) {
     const normalized = uniq((emails || []).map(normEmail));
 
-    const match = normalized.find((e) => domain && e.endsWith(`@${domain}`));
-    if (match) return match;
+    // Priority 1: Matches domain
+    const domainMatch = normalized.find((e) => domain && e.endsWith(`@${domain}`));
+    if (domainMatch) return domainMatch;
+
+    // Priority 2: Not info@ or general if possible
+    const specific = normalized.find(e => !e.startsWith('info@') && !e.startsWith('contacto@') && !e.startsWith('admin@'));
+    if (specific) return specific;
 
     return normalized[0] || "";
 }
@@ -53,7 +109,14 @@ function pickPrimaryPhone(phone, phones) {
         ...(phones || []).map(normalizePhone),
     ]).filter(Boolean);
 
-    return candidates[0] || "";
+    // Priority: Mobile first for outreach?
+    const mobile = candidates.find(p => {
+        const d = p.replace(/\D/g, '');
+        const es = d.startsWith('34') ? d.slice(2) : d;
+        return es.startsWith('6') || es.startsWith('7');
+    });
+
+    return mobile || candidates[0] || "";
 }
 
 function detectEcommerce(scrapedUrls) {
@@ -68,12 +131,8 @@ function detectEcommerce(scrapedUrls) {
 }
 
 function phoneTypeES(e164) {
-    const p = toStr(e164).replace(/[^\d+]/g, "");
-    if (!p) return "unknown";
-
-    const digits = p.startsWith("+") ? p.slice(1) : p;
-
-    // remove ES country code if present
+    if (!e164) return "unknown";
+    const digits = e164.replace(/\D/g, "");
     const es = digits.startsWith("34") ? digits.slice(2) : digits;
 
     if (es.startsWith("6") || es.startsWith("7")) return "mobile";
@@ -82,23 +141,40 @@ function phoneTypeES(e164) {
 }
 
 function whatsappLikely(lead) {
-    const cc = toStr(lead.countryCode).toUpperCase();
-    if (cc !== "ES") return false;
+    // Current assumption: any Spanish mobile has WhatsApp
     return lead.phone_type === "mobile";
 }
 
 function cleanLead(r) {
-    const website = toStr(r.website);
+    const website = cleanWebsiteUrl(toStr(r.website));
     const domain = toStr(r.domain) || extractDomainFromUrl(website);
 
-    const emails_all = uniq((r.emails || []).map(normEmail));
+    // Extract emails from ALL possible fields
+    const emailSources = [
+        r.email,
+        r.emails,
+        r.verifiedEmails,
+        r.emailAddresses,
+        r.contactEmail
+    ].filter(Boolean).flat();
+
+    const emails_all = uniq(emailSources.map(normEmail)).filter(e => e && e.includes('@'));
     const email_primary = pickPrimaryEmail(emails_all, domain);
 
-    const phone_primary = pickPrimaryPhone(r.phone, r.phones || []);
-    const phones_all = uniq([
-        phone_primary,
-        ...(r.phones || []).map(normalizePhone),
-    ]).filter(Boolean);
+    // Extract phones from ALL possible fields
+    const phoneSources = [
+        r.phone,
+        r.phoneNumber,
+        r.phones,
+        r.phoneNumbers,
+        r.contactPhone
+    ].filter(Boolean).flat();
+
+    const phones_all = uniq(phoneSources.map(normalizePhone)).filter(p => p && p.length > 6);
+    const phone_primary = pickPrimaryPhone(phones_all[0], phones_all.slice(1));
+
+
+    console.log(`[CLEANER] Extracted ${phones_all.length} phones:`, phones_all);
 
     const categories = uniq((r.categories || []).map((c) => toStr(c)));
     const scrapedUrls = uniq((r.scrapedUrls || []).map((u) => toStr(u)));
@@ -173,14 +249,23 @@ function cleanLead(r) {
 
     lead_clean.whatsapp_likely = whatsappLikely(lead_clean);
 
+    const isSocial = isSocialMedia(lead_clean.website);
+    const isProvider = isProviderDomain(lead_clean.domain);
+
     const enrichment_needed = {
         missing_email: !lead_clean.email_primary,
         missing_website: !lead_clean.website,
         missing_domain: !lead_clean.domain,
+        is_social_media: isSocial,
+        is_provider_domain: isProvider,
+        warning: isSocial ? 'LA WEB DETECTADA ES UNA RED SOCIAL. SE REQUIERE BUSCAR WEB REAL.' :
+            isProvider ? 'DOMINIO DE PROVEEDOR (WIX/SHOPIFY). POSIBLE FALTA DE DATOS PROPIOS.' : null,
         missing_contact_person: true,
     };
+
+    console.log(`[CLEANER] Final result - Emails: ${emails_all.length}, Phones: ${phones_all.length}, Website: ${website ? 'YES' : 'NO'}`);
 
     return { lead_clean, enrichment_needed };
 }
 
-module.exports = { cleanLead };
+module.exports = { cleanLead, isProviderDomain };
