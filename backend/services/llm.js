@@ -139,4 +139,83 @@ async function findContactsInText(businessName, rawText) {
     }
 }
 
-module.exports = { generatePersonalization, findContactsInText };
+/**
+ * Generate personalization blocks for outreach campaigns
+ * @param {Object} context - Lead context from enrichment
+ * @returns {Promise<Object>} - Personalization blocks
+ */
+async function generatePersonalizationBlocks(context) {
+    if (!OPENROUTER_API_KEY) {
+        return {
+            first_line: `Hola, vi que ${context.business_name} está en ${context.city}`,
+            why_you: `Trabajamos con negocios como el tuyo en el sector ${context.categoria || 'wellness'}`,
+            micro_offer: `¿Te interesaría conocer cómo podemos ayudarte a crecer?`,
+            cta_question: `¿Tienes 10 minutos esta semana?`
+        };
+    }
+
+    const prompt = `
+    Genera bloques de personalización para un email de prospección B2B.
+    
+    CONTEXTO DEL LEAD:
+    - Negocio: ${context.business_name}
+    - Tipo: ${context.business_type || 'Negocio local'}
+    - Ciudad: ${context.city}
+    - Categoría: ${context.categoria || 'wellness'}
+    - Rating: ${context.rating || 'N/A'} (${context.reviews_count || 0} reseñas)
+    - Resumen: ${context.website_summary || context.personalization_summary || 'No disponible'}
+    - Contexto existente: ${context.contexto_personalizado || ''}
+    
+    PRODUCTO: Magnesio antiedad premium para reventa en centros wellness y salud.
+    
+    GENERA 4 BLOQUES (JSON):
+    {
+      "first_line": "1 frase que demuestre investigación real sobre el negocio (NO genérica, máximo 20 palabras)",
+      "why_you": "1 frase de encaje específico explicando por qué este producto es relevante para ellos (máximo 20 palabras)",
+      "micro_offer": "1 línea de propuesta de valor clara y directa (máximo 20 palabras)",
+      "cta_question": "Pregunta corta y directa para generar respuesta (máximo 15 palabras)"
+    }
+    
+    REGLAS CRÍTICAS:
+    - Tono profesional pero cercano, en español
+    - NO inventar datos que no estén en el contexto
+    - Si falta info específica, usar contexto de categoría + ciudad de forma inteligente
+    - Evitar frases genéricas como "me gustaría", "estoy interesado", "he visto que"
+    - Mencionar algo específico del negocio si es posible (ubicación, tipo de servicio, etc)
+    - Máximo 20 palabras por bloque
+    `;
+
+    try {
+        const response = await axios.post('https://openrouter.ai/api/v1/chat/completions', {
+            model: LLM_MODEL,
+            messages: [
+                { role: 'system', content: 'Eres un experto en copywriting B2B. Tu salida debe ser ÚNICAMENTE JSON y todo el texto en ESPAÑOL.' },
+                { role: 'user', content: prompt }
+            ],
+            response_format: { type: 'json_object' }
+        }, {
+            headers: {
+                'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+                'HTTP-Referer': 'https://coeus-crm.com',
+                'X-Title': 'Coeus CRM Outreach'
+            }
+        });
+
+        const content = response.data.choices[0].message.content;
+        let jsonMatch = content.match(/\{[\s\S]*\}/);
+        const jsonStr = jsonMatch ? jsonMatch[0] : content;
+
+        return JSON.parse(jsonStr);
+    } catch (err) {
+        console.error('LLM Blocks Generation Error:', err.message);
+        // Fallback to safe blocks
+        return {
+            first_line: `Vi que ${context.business_name} está en ${context.city} con ${context.reviews_count || 'varias'} reseñas`,
+            why_you: `Trabajamos con centros ${context.categoria || 'wellness'} que buscan productos premium`,
+            micro_offer: `Nuestro magnesio antiedad podría complementar perfectamente tus servicios`,
+            cta_question: `¿Te interesaría conocer más detalles?`
+        };
+    }
+}
+
+module.exports = { generatePersonalization, findContactsInText, generatePersonalizationBlocks };

@@ -387,6 +387,140 @@ async function simulateEvent(eventType, leadEmail, meta = {}) {
     return { simulated: true, event_type: eventType };
 }
 
+/**
+ * Enroll leads from a batch into Instantly campaign
+ */
+async function enrollLeadsInCampaign(campaignId, batchId) {
+    console.log(`[INSTANTLY] Enrolling batch ${batchId} in campaign ${campaignId}`);
+
+    // Get campaign
+    const { supabase } = require('./supabase');
+    const { data: campaign } = await supabase
+        .from('campaigns')
+        .select('*')
+        .eq('id', campaignId)
+        .single();
+
+    // Get batch_leads with validated personalization
+    const { data: batchLeads } = await supabase
+        .from('batch_leads')
+        .select('*')
+        .eq('batch_id', batchId)
+        .eq('personalization_status', 'validated')
+        .eq('enrollment_status', 'not_enrolled');
+
+    if (!batchLeads || batchLeads.length === 0) {
+        console.log('[INSTANTLY] No leads ready for enrollment');
+        return { success: 0, failed: 0, total: 0 };
+    }
+
+    console.log(`[INSTANTLY] Enrolling ${batchLeads.length} leads...`);
+
+    const results = { success: 0, failed: 0, total: batchLeads.length };
+
+    for (const bl of batchLeads) {
+        try {
+            // Get lead data
+            const { data: lead } = await supabase
+                .from('leads')
+                .select('*')
+                .eq('id', bl.lead_id)
+                .single();
+
+            // Get personalization
+            const { data: personalization } = await supabase
+                .from('personalizations')
+                .select('*')
+                .eq('id', bl.personalization_id)
+                .single();
+
+            const payload = {
+                email: bl.contact_email || lead.email,
+                first_name: lead.business_name.split(' ')[0],
+                company_name: lead.business_name,
+                variables: {
+                    business_name: lead.business_name,
+                    first_line: personalization.first_line,
+                    why_you: personalization.why_you,
+                    micro_offer: personalization.micro_offer,
+                    cta_question: personalization.cta_question
+                }
+            };
+
+            if (INSTANTLY_MODE === 'SIMULATION') {
+                // Simulation mode
+                const simulatedId = `SIM_prospect_${Date.now()}_${Math.random()}`;
+
+                await supabase
+                    .from('batch_leads')
+                    .update({
+                        instantly_prospect_id: simulatedId,
+                        enrollment_status: 'enrolled',
+                        enrolled_at: new Date().toISOString()
+                    })
+                    .eq('id', bl.id);
+
+                // Create enrolled event
+                await supabase
+                    .from('outreach_events')
+                    .insert([{
+                        lead_id: bl.lead_id,
+                        campaign_id: campaignId,
+                        batch_id: batchId,
+                        batch_lead_id: bl.id,
+                        event_type: 'enrolled',
+                        provider: 'instantly',
+                        external_id: simulatedId,
+                        occurred_at: new Date().toISOString(),
+                        provider_payload: { simulated: true, payload }
+                    }]);
+
+                results.success++;
+                console.log(`  ✓ [SIM] Enrolled: ${lead.business_name}`);
+            } else {
+                // Live mode - call Instantly API
+                const response = await axios.post(
+                    `${INSTANTLY_BASE_URL}/campaigns/${campaign.instantly_campaign_id}/leads`,
+                    payload,
+                    { headers: { 'Authorization': `Bearer ${INSTANTLY_API_KEY}` } }
+                );
+
+                await supabase
+                    .from('batch_leads')
+                    .update({
+                        instantly_prospect_id: response.data.id,
+                        enrollment_status: 'enrolled',
+                        enrolled_at: new Date().toISOString()
+                    })
+                    .eq('id', bl.id);
+
+                await supabase
+                    .from('outreach_events')
+                    .insert([{
+                        lead_id: bl.lead_id,
+                        campaign_id: campaignId,
+                        batch_id: batchId,
+                        batch_lead_id: bl.id,
+                        event_type: 'enrolled',
+                        provider: 'instantly',
+                        external_id: response.data.id,
+                        occurred_at: new Date().toISOString(),
+                        provider_payload: response.data
+                    }]);
+
+                results.success++;
+                console.log(`  ✓ Enrolled: ${lead.business_name}`);
+            }
+        } catch (error) {
+            console.error(`  ✗ Failed:`, error.message);
+            results.failed++;
+        }
+    }
+
+    console.log(`[INSTANTLY] ✓ Enrollment complete: ${results.success} success, ${results.failed} failed`);
+    return results;
+}
+
 module.exports = {
     createCampaign,
     getCampaigns,
@@ -397,5 +531,7 @@ module.exports = {
     resumeLead,
     getLeadEnrollment,
     getCampaignStats,
-    simulateEvent
+    simulateEvent,
+    enrollLeadsInCampaign
 };
+

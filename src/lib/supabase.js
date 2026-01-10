@@ -4,8 +4,6 @@ const rawUrl = import.meta.env.VITE_SUPABASE_URL || ''
 const supabaseUrl = rawUrl.trim().replace(/\/$/, '')
 const supabaseAnonKey = (import.meta.env.VITE_SUPABASE_ANON_KEY || '').trim()
 
-console.log('[Supabase] Initializing with URL:', supabaseUrl)
-
 const isValidUrl = supabaseUrl && (supabaseUrl.startsWith('http://') || supabaseUrl.startsWith('https://'))
 
 export const supabase = isValidUrl
@@ -26,7 +24,3 @@ export const supabase = isValidUrl
             delete: () => ({ eq: () => Promise.resolve({ error: 'Invalid Supabase URL' }) }),
         })
     }
-
-if (!isValidUrl) {
-    console.warn('⚠️ Supabase URL is invalid or missing:', rawUrl)
-}

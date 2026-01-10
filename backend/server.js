@@ -484,6 +484,147 @@ app.post('/api/enrollments/:id/resume', async (req, res) => {
     }
 });
 
+// ============================================================================
+// OUTREACH CAMPAIGN ENDPOINTS
+// ============================================================================
+
+const campaignService = require('./services/campaign');
+const batchService = require('./services/batch');
+const personalizationService = require('./services/personalization');
+
+// Create Campaign
+app.post('/api/outreach/campaigns', async (req, res) => {
+    try {
+        const { hypothesis, template_config, sending_config } = req.body;
+        const campaign = await campaignService.createCampaign(hypothesis, template_config, sending_config);
+        res.json(campaign);
+    } catch (err) {
+        console.error('[API] Create campaign error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Get Campaigns
+app.get('/api/outreach/campaigns', async (req, res) => {
+    try {
+        const campaigns = await campaignService.getCampaigns(req.query);
+        res.json(campaigns);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Get Campaign
+app.get('/api/outreach/campaigns/:id', async (req, res) => {
+    try {
+        const campaign = await campaignService.getCampaign(req.params.id);
+        res.json(campaign);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Get Campaign Stats
+app.get('/api/outreach/campaigns/:id/stats', async (req, res) => {
+    try {
+        const stats = await campaignService.getCampaignStats(req.params.id);
+        res.json(stats);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Launch Campaign
+app.post('/api/outreach/campaigns/:id/launch', async (req, res) => {
+    try {
+        const campaign = await campaignService.launchCampaign(req.params.id);
+        res.json(campaign);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Pause Campaign
+app.post('/api/outreach/campaigns/:id/pause', async (req, res) => {
+    try {
+        const campaign = await campaignService.pauseCampaign(req.params.id);
+        res.json(campaign);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Create Batch
+app.post('/api/outreach/campaigns/:id/batches', async (req, res) => {
+    try {
+        const { filters } = req.body;
+        const batch = await batchService.createBatchFromFilters(req.params.id, filters);
+        res.json(batch);
+    } catch (err) {
+        console.error('[API] Create batch error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Get Batch Leads
+app.get('/api/outreach/batches/:id/leads', async (req, res) => {
+    try {
+        const leads = await batchService.getBatchLeads(req.params.id, req.query);
+        res.json(leads);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Get Batch Stats
+app.get('/api/outreach/batches/:id/stats', async (req, res) => {
+    try {
+        const stats = await batchService.getBatchStats(req.params.id);
+        res.json(stats);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Generate Personalization for Batch
+app.post('/api/outreach/batches/:id/personalize', async (req, res) => {
+    try {
+        const results = await personalizationService.generateBlocksForBatch(req.params.id);
+        res.json(results);
+    } catch (err) {
+        console.error('[API] Personalization error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Enroll Batch in Instantly
+app.post('/api/outreach/batches/:id/enroll', async (req, res) => {
+    try {
+        const { campaign_id } = req.body;
+        const results = await instantly.enrollLeadsInCampaign(campaign_id, req.params.id);
+        res.json(results);
+    } catch (err) {
+        console.error('[API] Enrollment error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Get Lead Timeline
+app.get('/api/outreach/leads/:id/timeline', async (req, res) => {
+    try {
+        const { data, error } = await supabase
+            .from('outreach_events')
+            .select('*')
+            .eq('lead_id', req.params.id)
+            .order('occurred_at', { ascending: false });
+
+        if (error) throw error;
+        res.json(data || []);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 // DEV ONLY: Simulate Event (for testing without live API)
 app.post('/api/dev/simulate-event', async (req, res) => {
     try {
@@ -498,6 +639,7 @@ app.post('/api/dev/simulate-event', async (req, res) => {
         console.error('[DEV] Simulate error:', err.message);
         res.status(500).json({ error: err.message });
     }
+
 });
 
 if (require.main === module) {

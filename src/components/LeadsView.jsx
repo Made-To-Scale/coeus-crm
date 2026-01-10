@@ -549,6 +549,7 @@ export default function LeadsView({ filterTier: propTier }) {
             setLoading(true)
             const { data, error } = await supabase.from('leads').select('*').order('created_at', { ascending: false })
             if (error) throw error
+            console.log('Fetched leads count:', data?.length)
             setLeads(data || [])
         } catch (err) {
             setError(err.message)
@@ -636,7 +637,26 @@ export default function LeadsView({ filterTier: propTier }) {
                         <option value="ALL">All Categories</option>
                         {uniqueSearches.map(s => <option key={s} value={s}>{s}</option>)}
                     </select>
+
+                    <button
+                        onClick={fetchLeads}
+                        className="ml-2 p-2 hover:bg-slate-100 rounded-lg transition-colors text-slate-500"
+                        title="Refresh Leads"
+                    >
+                        <Activity size={18} className={loading ? 'animate-spin' : ''} />
+                    </button>
                 </div>
+            </div>
+
+            {error && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-100 rounded-xl text-red-600 text-sm font-bold flex items-center gap-2">
+                    <X size={18} /> Error: {error}
+                </div>
+            )}
+
+            <div className="mb-4 text-xs font-bold text-slate-400 uppercase tracking-widest flex justify-between">
+                <span>Leads in memory: {leads.length}</span>
+                <span>Visible after filters: {filteredLeads.length}</span>
             </div>
 
             <div className="bg-white shadow-sm rounded-2xl border border-slate-200 overflow-hidden">

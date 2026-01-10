@@ -5,6 +5,7 @@ import PipelineView from './components/PipelineView'
 import DashboardView from './components/DashboardView'
 import LeadsView from './components/LeadsView'
 import CampaignsView from './components/CampaignsView'
+import OutreachView from './components/OutreachView'
 
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard')
@@ -23,7 +24,7 @@ function App() {
       case 'campaigns':
         return <CampaignsView />
       case 'outreach-email':
-        return <LeadsView filterTier="GOLD" /> // Example: Filter GOLD for email
+        return <OutreachView />
       case 'outreach-whatsapp':
         return <LeadsView filterTier="WHATSAPP" />
       case 'outreach-coldcall':
