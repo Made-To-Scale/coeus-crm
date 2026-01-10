@@ -6,7 +6,7 @@ import {
     Send, AlertCircle, CheckCircle2, Clock, X, MapPin, Star, Target
 } from 'lucide-react';
 
-const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+const API_URL = import.meta.env.VITE_BACKEND_URL || '';
 
 const StatCard = ({ title, value, icon, color }) => (
     <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">

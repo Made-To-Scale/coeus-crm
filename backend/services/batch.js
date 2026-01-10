@@ -28,15 +28,21 @@ async function createBatchFromFilters(campaignId, filters) {
     }
 
     if (filters.city) {
-        query = query.eq('city', filters.city);
+        // Case-insensitive search
+        query = query.ilike('city', filters.city);
     }
 
-    if (filters.business_type) {
-        query = query.eq('business_type', filters.business_type);
+    // Map ICP from UI to business_type or niche_tag in DB
+    const businessTypeQuery = filters.business_type || filters.icp;
+    if (businessTypeQuery) {
+        // Search in both business_type and niche_tag using OR logic
+        // For simplicity, we search business_type with ilike. 
+        // If we want OR, we need a complex query, but let's start with business_type
+        query = query.ilike('business_type', `%${businessTypeQuery}%`);
     }
 
     if (filters.niche_tag) {
-        query = query.eq('niche_tag', filters.niche_tag);
+        query = query.ilike('niche_tag', `%${filters.niche_tag}%`);
     }
 
     if (filters.digital_maturity) {
