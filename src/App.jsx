@@ -89,13 +89,6 @@ function App() {
                   setActiveTab={setActiveTab}
                   subItem
                 />
-                <SidebarItem
-                  icon={<Activity size={16} />}
-                  label="Campaigns" id="campaigns"
-                  activeTab={activeTab}
-                  setActiveTab={setActiveTab}
-                  subItem
-                />
               </div>
             )}
           </div>
