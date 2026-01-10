@@ -28,6 +28,10 @@ const OutreachView = () => {
     const [error, setError] = useState(null);
     const [selectedCampaign, setSelectedCampaign] = useState(null);
     const [stats, setStats] = useState(null);
+    const [batches, setBatches] = useState([]);
+    const [selectedBatch, setSelectedBatch] = useState(null);
+    const [batchLeads, setBatchLeads] = useState([]);
+    const [loadingLeads, setLoadingLeads] = useState(false);
 
     // Modal state
     const [showCreateModal, setShowCreateModal] = useState(false);
@@ -47,8 +51,15 @@ const OutreachView = () => {
     useEffect(() => {
         if (selectedCampaign) {
             fetchCampaignStats(selectedCampaign.id);
+            fetchBatches(selectedCampaign.id);
         }
     }, [selectedCampaign]);
+
+    useEffect(() => {
+        if (selectedBatch) {
+            fetchBatchLeads(selectedBatch.id);
+        }
+    }, [selectedBatch]);
 
     const fetchCampaigns = async () => {
         try {
@@ -77,6 +88,32 @@ const OutreachView = () => {
             }
         } catch (err) {
             console.error('Error fetching stats:', err);
+        }
+    };
+
+    const fetchBatches = async (campaignId) => {
+        try {
+            const { data: bData } = await supabase.from('batches').select('*').eq('campaign_id', campaignId).order('created_at', { ascending: false });
+            setBatches(bData || []);
+            if (bData && bData.length > 0) setSelectedBatch(bData[0]);
+            else setSelectedBatch(null);
+        } catch (err) {
+            console.error('Error fetching batches:', err);
+        }
+    };
+
+    const fetchBatchLeads = async (batchId) => {
+        try {
+            setLoadingLeads(true);
+            const res = await fetch(`${API_URL}/api/outreach/batches/${batchId}/leads`);
+            if (res.ok) {
+                const data = await res.json();
+                setBatchLeads(data);
+            }
+        } catch (err) {
+            console.error('Error fetching batch leads:', err);
+        } finally {
+            setLoadingLeads(false);
         }
     };
 
@@ -188,32 +225,48 @@ const OutreachView = () => {
                                         >
                                             <RefreshCw size={18} />
                                         </button>
-                                        <button className="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md hover:bg-blue-700 active:scale-95 transition-all">Lanzar Batch</button>
+                                        <button
+                                            onClick={async () => {
+                                                const confirmed = window.confirm(`¿Lanzar nuevo batch para ${selectedCampaign.hypothesis?.city}?`);
+                                                if (confirmed) {
+                                                    const res = await fetch(`${API_URL}/api/outreach/campaigns/${selectedCampaign.id}/batches`, {
+                                                        method: 'POST',
+                                                        headers: { 'Content-Type': 'application/json' },
+                                                        body: JSON.stringify({ filters: selectedCampaign.hypothesis })
+                                                    });
+                                                    if (res.ok) fetchBatches(selectedCampaign.id);
+                                                    else alert('No se encontraron leads disponibles para esta hipótesis.');
+                                                }
+                                            }}
+                                            className="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md hover:bg-blue-700 active:scale-95 transition-all"
+                                        >
+                                            Lanzar Batch
+                                        </button>
                                     </div>
                                 </div>
 
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                     <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
-                                        <p className="text-[10px] font-bold text-slate-400 uppercase mb-1">Enrolados</p>
-                                        <p className="text-xl font-black text-slate-900">{stats?.enrolled || 0}</p>
+                                        <p className="text-[10px] font-bold text-slate-400 uppercase mb-1">Total Leads</p>
+                                        <p className="text-xl font-black text-slate-900">{stats?.total || 0}</p>
                                     </div>
                                     <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
                                         <p className="text-[10px] font-bold text-slate-400 uppercase mb-1">Abr.</p>
-                                        <p className="text-xl font-black text-slate-900">{stats?.enrolled > 0 ? Math.round((stats.opened / stats.enrolled) * 100) : 0}%</p>
+                                        <p className="text-xl font-black text-slate-900">{stats?.total > 0 ? Math.round((stats.opened / stats.total) * 100) : 0}%</p>
                                     </div>
                                     <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
                                         <p className="text-[10px] font-bold text-slate-400 uppercase mb-1">Resp.</p>
-                                        <p className="text-xl font-black text-slate-900">{stats?.enrolled > 0 ? Math.round((stats.replied / stats.enrolled) * 100) : 0}%</p>
+                                        <p className="text-xl font-black text-slate-900">{stats?.total > 0 ? Math.round((stats.replied / stats.total) * 100) : 0}%</p>
                                     </div>
                                     <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
-                                        <p className="text-[10px] font-bold text-slate-400 uppercase mb-1">Bounced</p>
-                                        <p className="text-xl font-black text-red-600">{stats?.bounced || 0}</p>
+                                        <p className="text-[10px] font-bold text-slate-400 uppercase mb-1">Batches</p>
+                                        <p className="text-xl font-black text-blue-600">{batches.length}</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="p-8">
-                                <div className="flex items-center gap-3 mb-6">
+                            <div className="p-8 space-y-8">
+                                <div className="flex items-center gap-3">
                                     <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
                                         <CheckCircle2 size={24} />
                                     </div>
@@ -223,16 +276,113 @@ const OutreachView = () => {
                                     </div>
                                 </div>
 
-                                <div className="space-y-4">
-                                    <h4 className="text-xs font-black text-slate-400 uppercase tracking-widest">Estado del Embudo</h4>
-                                    <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex items-center justify-between">
-                                        <div>
-                                            <p className="text-lg font-bold text-slate-800">Hay leads preparados para envío</p>
-                                            <p className="text-sm text-slate-400">Las personalizaciones AI se generan al lanzar el batch.</p>
+                                {/* Batches Tabs */}
+                                {batches.length > 0 && (
+                                    <div className="space-y-4">
+                                        <h4 className="text-xs font-black text-slate-400 uppercase tracking-widest">Envíos por Batch</h4>
+                                        <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                                            {batches.map((b, i) => (
+                                                <button
+                                                    key={b.id}
+                                                    onClick={() => setSelectedBatch(b)}
+                                                    className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap border ${selectedBatch?.id === b.id
+                                                        ? 'bg-slate-900 text-white border-slate-900'
+                                                        : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300'}`}
+                                                >
+                                                    Batch {batches.length - i} ({new Date(b.created_at).toLocaleDateString()})
+                                                </button>
+                                            ))}
                                         </div>
-                                        <button className="bg-white border border-slate-200 px-4 py-2 rounded-xl text-sm font-bold shadow-sm hover:bg-white/50 transition-colors">Configurar Batch</button>
+
+                                        {/* Leads List */}
+                                        <div className="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                                            <div className="p-4 border-b border-slate-100 flex justify-between items-center bg-white">
+                                                <span className="text-xs font-bold text-slate-500">{batchLeads.length} Leads en este batch</span>
+                                                <div className="flex gap-4">
+                                                    <button
+                                                        onClick={async () => {
+                                                            const confirmed = window.confirm('¿Deseas enviar estos leads a Instantly.ai ahora?');
+                                                            if (confirmed) {
+                                                                const res = await fetch(`${API_URL}/api/outreach/batches/${selectedBatch.id}/enroll`, {
+                                                                    method: 'POST',
+                                                                    headers: { 'Content-Type': 'application/json' },
+                                                                    body: JSON.stringify({ campaign_id: selectedCampaign.id })
+                                                                });
+                                                                if (res.ok) {
+                                                                    const results = await res.json();
+                                                                    alert(`Proceso completado: ${results.success} leads enrolados.`);
+                                                                    fetchBatchLeads(selectedBatch.id);
+                                                                    fetchCampaignStats(selectedCampaign.id);
+                                                                } else alert('Error al enrolar leads.');
+                                                            }
+                                                        }}
+                                                        className="text-emerald-600 text-xs font-bold hover:underline flex items-center gap-1"
+                                                    >
+                                                        <Send size={12} /> Lanzar Enroll
+                                                    </button>
+                                                    <button
+                                                        onClick={async () => {
+                                                            const confirmed = window.confirm('¿Generar personalizaciones AI para todos los leads de este batch?');
+                                                            if (confirmed) {
+                                                                const res = await fetch(`${API_URL}/api/outreach/batches/${selectedBatch.id}/personalize`, { method: 'POST' });
+                                                                if (res.ok) fetchBatchLeads(selectedBatch.id);
+                                                                else alert('Error al generar personalizaciones.');
+                                                            }
+                                                        }}
+                                                        className="text-indigo-600 text-xs font-bold hover:underline flex items-center gap-1"
+                                                    >
+                                                        <Activity size={12} /> Personalizar AI
+                                                    </button>
+                                                    <button
+                                                        onClick={() => fetchBatchLeads(selectedBatch.id)}
+                                                        className="text-blue-600 text-xs font-bold hover:underline flex items-center gap-1"
+                                                    >
+                                                        <RefreshCw size={12} className={loadingLeads ? 'animate-spin' : ''} /> Actualizar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div className="max-h-[300px] overflow-y-auto divide-y divide-slate-100">
+                                                {batchLeads.map(bl => (
+                                                    <div key={bl.id} className="p-4 flex items-center justify-between hover:bg-white transition-colors">
+                                                        <div className="flex items-center gap-3">
+                                                            <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-slate-400 border border-slate-100">
+                                                                <Mail size={14} />
+                                                            </div>
+                                                            <div>
+                                                                <p className="text-sm font-bold text-slate-700">{bl.lead?.business_name}</p>
+                                                                <p className="text-[10px] text-slate-400">{bl.contact_email}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex items-center gap-3">
+                                                            <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-md ${bl.personalization_status === 'validated' ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-500'
+                                                                }`}>
+                                                                {bl.enrollment_status === 'enrolled' ? 'Enviado' : (bl.personalization_status === 'pending' ? 'Borrador' : bl.personalization_status)}
+                                                            </span>
+                                                            <ChevronRight size={16} className="text-slate-300" />
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                                {batchLeads.length === 0 && (
+                                                    <div className="p-8 text-center text-slate-400 text-sm">No hay leads en este batch.</div>
+                                                )}
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                )}
+
+                                {batches.length === 0 && (
+                                    <div className="bg-slate-50 rounded-2xl p-8 border-2 border-dashed border-slate-200 text-center">
+                                        <Clock size={32} className="mx-auto text-slate-300 mb-3" />
+                                        <p className="text-sm font-bold text-slate-800">Campaña vacía</p>
+                                        <p className="text-xs text-slate-400 mb-4">Aún no has lanzado ningún batch de leads para esta hipótesis.</p>
+                                        <button
+                                            onClick={() => document.querySelector('button[onClick*="batches"]').click()}
+                                            className="text-blue-600 text-xs font-bold hover:underline"
+                                        >
+                                            Haz clic en "Lanzar Batch" para empezar.
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     ) : (
