@@ -169,7 +169,7 @@ export default function SearchView() {
                                 runs.map(run => {
                                     const status = run.config?.status || 'UNKNOWN'
                                     const totalLeads = run.config?.total_leads || 0
-                                    const targetLimit = run.config?.limit || 20
+                                    const targetLimit = run.config?.limit || totalLeads || 20
 
                                     // State progression
                                     const isScraping = status === 'SCRAPING'
@@ -214,8 +214,8 @@ export default function SearchView() {
                                                     </div>
                                                 </div>
                                                 <div className={`px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider flex items-center gap-2 ${isRunning ? 'bg-blue-100 text-blue-700 animate-pulse' :
-                                                        isCompleted ? 'bg-green-100 text-green-700' :
-                                                            'bg-red-50 text-red-700'
+                                                    isCompleted ? 'bg-green-100 text-green-700' :
+                                                        'bg-red-50 text-red-700'
                                                     }`}>
                                                     {isRunning && <Loader2 size={12} className="animate-spin" />}
                                                     {status}
@@ -226,8 +226,8 @@ export default function SearchView() {
                                             <div className="relative h-2 bg-slate-100 rounded-full overflow-hidden mt-4">
                                                 <div
                                                     className={`absolute top-0 left-0 h-full transition-all duration-500 ${isCompleted ? 'bg-green-500' :
-                                                            isRunning ? 'bg-blue-500' :
-                                                                'bg-red-400'
+                                                        isRunning ? 'bg-blue-500' :
+                                                            'bg-red-400'
                                                         }`}
                                                     style={{ width: `${progressPercent}%` }}
                                                 ></div>
