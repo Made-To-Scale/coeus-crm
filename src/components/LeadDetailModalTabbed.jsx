@@ -47,12 +47,22 @@ export function LeadDetailModalTabbed({ lead, onClose, onUpdate }) {
                 </h3>
 
                 <div className="space-y-4">
-                    {reasons.map((reason, idx) => {
-                        const match = reason.match(/(.+?)\s*\+(\d+)/)
-                        if (!match) return null
+                    {reasons.map((item, idx) => {
+                        // Handle both string format "Label +10" and object format {reason: "Label", points: 10}
+                        let label, points
 
-                        const label = match[1].trim()
-                        const points = parseInt(match[2])
+                        if (typeof item === 'string') {
+                            const match = item.match(/(.+?)\s*\+(\d+)/)
+                            if (!match) return null
+                            label = match[1].trim()
+                            points = parseInt(match[2])
+                        } else if (item && typeof item === 'object') {
+                            label = item.reason || ''
+                            points = item.points || 0
+                        } else {
+                            return null
+                        }
+
                         const percentage = Math.min((points / 100) * 100, 100)
 
                         return (
@@ -97,8 +107,8 @@ export function LeadDetailModalTabbed({ lead, onClose, onUpdate }) {
                                 </span>
                                 {lead.lead_tier && (
                                     <span className={`px-2 py-0.5 rounded-md text-xs font-black ${lead.lead_tier === 'GOLD' ? 'bg-amber-500' :
-                                            lead.lead_tier === 'SILVER' ? 'bg-slate-400' :
-                                                'bg-emerald-500'
+                                        lead.lead_tier === 'SILVER' ? 'bg-slate-400' :
+                                            'bg-emerald-500'
                                         }`}>
                                         {lead.lead_tier}
                                     </span>
@@ -117,8 +127,8 @@ export function LeadDetailModalTabbed({ lead, onClose, onUpdate }) {
                         <button
                             onClick={() => setActiveTab('detail')}
                             className={`px-6 py-3 font-bold text-sm transition-all ${activeTab === 'detail'
-                                    ? 'text-blue-600 border-b-2 border-blue-600'
-                                    : 'text-slate-500 hover:text-slate-700'
+                                ? 'text-blue-600 border-b-2 border-blue-600'
+                                : 'text-slate-500 hover:text-slate-700'
                                 }`}
                         >
                             Detalle
@@ -126,8 +136,8 @@ export function LeadDetailModalTabbed({ lead, onClose, onUpdate }) {
                         <button
                             onClick={() => setActiveTab('outreach')}
                             className={`px-6 py-3 font-bold text-sm transition-all ${activeTab === 'outreach'
-                                    ? 'text-blue-600 border-b-2 border-blue-600'
-                                    : 'text-slate-500 hover:text-slate-700'
+                                ? 'text-blue-600 border-b-2 border-blue-600'
+                                : 'text-slate-500 hover:text-slate-700'
                                 }`}
                         >
                             Outreach
