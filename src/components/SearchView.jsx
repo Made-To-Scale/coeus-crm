@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { Search, History, Play, Trash2, Database, Loader2 } from 'lucide-react'
 import { supabase } from '../lib/supabaseClient'
 
+const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+
 export default function SearchView() {
     const [businessType, setBusinessType] = useState('')
     const [city, setCity] = useState('')
@@ -38,7 +40,7 @@ export default function SearchView() {
 
         try {
             // Call our own backend endpoint
-            const response = await fetch('http://localhost:3000/api/ingest', { // Adjust if URL is different in production
+            const response = await fetch(`${API_URL}/api/ingest`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
