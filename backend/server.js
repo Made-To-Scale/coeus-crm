@@ -633,6 +633,26 @@ app.get('/api/outreach/leads/:id/timeline', async (req, res) => {
     }
 });
 
+// Sync Campaigns from Instantly
+app.get('/api/outreach/sync-campaigns', async (req, res) => {
+    try {
+        const campaigns = await instantly.syncCampaigns();
+        res.json(campaigns);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Sync Events from Instantly for a campaign
+app.post('/api/outreach/campaigns/:id/sync-events', async (req, res) => {
+    try {
+        const stats = await instantly.syncEvents(req.params.id);
+        res.json(stats);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 // DEV ONLY: Simulate Event (for testing without live API)
 app.post('/api/dev/simulate-event', async (req, res) => {
     try {

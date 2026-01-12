@@ -32,6 +32,7 @@ const OutreachView = () => {
     const [selectedBatch, setSelectedBatch] = useState(null);
     const [batchLeads, setBatchLeads] = useState([]);
     const [loadingLeads, setLoadingLeads] = useState(false);
+    const [instantlyCampaigns, setInstantlyCampaigns] = useState([]);
 
     // Modal state
     const [showCreateModal, setShowCreateModal] = useState(false);
@@ -41,11 +42,13 @@ const OutreachView = () => {
         icp: '',
         tier: 'GOLD',
         source: 'Google Maps',
-        version: 1
+        version: 1,
+        instantly_campaign_id: ''
     });
 
     useEffect(() => {
         fetchCampaigns();
+        fetchInstantlyCampaigns();
     }, []);
 
     useEffect(() => {
@@ -76,6 +79,48 @@ const OutreachView = () => {
             setError(err.message);
         } finally {
             setLoading(false);
+        }
+    };
+
+    const syncInstantlyCampaigns = async () => {
+        try {
+            setLoading(true);
+            const res = await fetch(`${API_URL}/api/outreach/sync-campaigns`);
+            if (res.ok) {
+                const data = await res.json();
+                setCampaigns(data);
+                alert('Campañas sincronizadas con éxito');
+            }
+        } catch (err) {
+            alert('Error al sincronizar campañas: ' + err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const fetchInstantlyCampaigns = async () => {
+        try {
+            const { data, error } = await supabase.from('instantly_campaigns').select('*').order('name');
+            if (error) throw error;
+            setInstantlyCampaigns(data || []);
+        } catch (err) {
+            console.error('Error fetching instantly campaigns:', err);
+        }
+    };
+
+    const syncCampaignEvents = async (campaignId) => {
+        try {
+            setLoadingLeads(true);
+            const res = await fetch(`${API_URL}/api/outreach/campaigns/${campaignId}/sync-events`, { method: 'POST' });
+            if (res.ok) {
+                const newStats = await res.json();
+                setStats(newStats);
+                if (selectedBatch) fetchBatchLeads(selectedBatch.id);
+            }
+        } catch (err) {
+            console.error('Error syncing events:', err);
+        } finally {
+            setLoadingLeads(false);
         }
     };
 
@@ -158,14 +203,22 @@ const OutreachView = () => {
             <div className="flex justify-between items-center">
                 <div>
                     <h1 className="text-3xl font-black text-slate-900 tracking-tight">Outreach System</h1>
-                    <p className="text-slate-500 font-medium mt-1 italic">Conectado con Instantly.ai | Modo SIMULATION</p>
+                    <p className="text-slate-500 font-medium mt-1 italic">Conectado con Instantly.ai | API Growth Support</p>
                 </div>
-                <button
-                    onClick={() => setShowCreateModal(true)}
-                    className="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-slate-800 transition-all shadow-lg active:scale-95"
-                >
-                    <Plus size={20} /> Nueva Campaña
-                </button>
+                <div className="flex gap-3">
+                    <button
+                        onClick={syncInstantlyCampaigns}
+                        className="bg-white text-slate-700 border border-slate-200 px-4 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-slate-50 transition-all shadow-sm active:scale-95"
+                    >
+                        <RefreshCw size={18} className={loading ? 'animate-spin' : ''} /> Sync Instantly
+                    </button>
+                    <button
+                        onClick={() => setShowCreateModal(true)}
+                        className="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-slate-800 transition-all shadow-lg active:scale-95"
+                    >
+                        <Plus size={20} /> Nueva Hipótesis
+                    </button>
+                </div>
             </div>
 
             {/* Grid de Stats Global */}
@@ -220,10 +273,12 @@ const OutreachView = () => {
                                     </div>
                                     <div className="flex gap-2">
                                         <button
-                                            onClick={() => fetchCampaignStats(selectedCampaign.id)}
-                                            className="p-2 bg-white border border-slate-200 rounded-lg shadow-sm hover:bg-slate-50"
+                                            onClick={() => syncCampaignEvents(selectedCampaign.id)}
+                                            className="p-2 bg-white border border-slate-200 rounded-lg shadow-sm hover:bg-slate-50 flex items-center gap-2"
+                                            title="Sync Stats & Events from Instantly"
                                         >
-                                            <RefreshCw size={18} />
+                                            <RefreshCw size={18} className={loadingLeads ? 'animate-spin' : ''} />
+                                            <span className="text-xs font-bold">Sync Data</span>
                                         </button>
                                         <button
                                             onClick={async () => {
@@ -232,7 +287,17 @@ const OutreachView = () => {
                                                     const res = await fetch(`${API_URL}/api/outreach/campaigns/${selectedCampaign.id}/batches`, {
                                                         method: 'POST',
                                                         headers: { 'Content-Type': 'application/json' },
-                                                        body: JSON.stringify({ filters: selectedCampaign.hypothesis })
+                                                        body: JSON.stringify({
+                                                            filters: {
+                                                                ...selectedCampaign.hypothesis,
+                                                                channel: 'EMAIL',
+                                                                email_verified: true,
+                                                                exclusions: {
+                                                                    already_in_campaign: true,
+                                                                    do_not_contact: true
+                                                                }
+                                                            }
+                                                        })
                                                     });
                                                     if (res.ok) fetchBatches(selectedCampaign.id);
                                                     else alert('No se encontraron leads disponibles para esta hipótesis.');
@@ -354,9 +419,17 @@ const OutreachView = () => {
                                                             </div>
                                                         </div>
                                                         <div className="flex items-center gap-3">
-                                                            <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-md ${bl.personalization_status === 'validated' ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-500'
+                                                            <span className={`text-[10px] font-black uppercase px-2 py-1 rounded-md border ${bl.enrollment_status === 'enrolled' || bl.enrollment_status === 'sent'
+                                                                    ? 'bg-green-50 text-green-700 border-green-100'
+                                                                    : bl.personalization_status === 'validated'
+                                                                        ? 'bg-indigo-50 text-indigo-700 border-indigo-100'
+                                                                        : 'bg-slate-50 text-slate-400 border-slate-100'
                                                                 }`}>
-                                                                {bl.enrollment_status === 'enrolled' ? 'Enviado' : (bl.personalization_status === 'pending' ? 'Borrador' : bl.personalization_status)}
+                                                                {bl.enrollment_status === 'enrolled' || bl.enrollment_status === 'sent'
+                                                                    ? '🚀 Enviado'
+                                                                    : bl.personalization_status === 'validated'
+                                                                        ? '✨ Listo'
+                                                                        : 'Draft'}
                                                             </span>
                                                             <ChevronRight size={16} className="text-slate-300" />
                                                         </div>
@@ -451,9 +524,31 @@ const OutreachView = () => {
 
                             <div className="bg-blue-50 p-4 rounded-xl border border-blue-100">
                                 <p className="text-[10px] text-blue-600 font-bold uppercase tracking-wider mb-2">Nombre Generado</p>
-                                <code className="text-xs font-black text-blue-800">
+                                <code className="text-xs font-black text-blue-800 italic">
                                     EMAIL_ES_{(newHypothesis.city || 'CITY').toUpperCase()}_{(newHypothesis.icp || 'ICP').toUpperCase()}_GOOGLEMAPS_{newHypothesis.tier}_V1
                                 </code>
+                            </div>
+
+                            <div>
+                                <label className="text-xs font-bold text-slate-400 uppercase mb-2 block tracking-widest flex items-center gap-1.5 font-black">
+                                    <Megaphone size={12} /> Vincular Campaña Instantly
+                                </label>
+                                <select
+                                    required
+                                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold text-slate-700 focus:ring-2 focus:ring-blue-500 outline-none appearance-none"
+                                    value={newHypothesis.instantly_campaign_id}
+                                    onChange={e => setNewHypothesis({ ...newHypothesis, instantly_campaign_id: e.target.value })}
+                                >
+                                    <option value="">Selecciona una campaña de Instantly...</option>
+                                    {instantlyCampaigns.map(c => (
+                                        <option key={c.id} value={c.instantly_campaign_id}>
+                                            {c.name} {c.instantly_campaign_id.startsWith('SIM_') ? '(SIM)' : ''}
+                                        </option>
+                                    ))}
+                                </select>
+                                <p className="text-[10px] text-slate-400 mt-2 italic">
+                                    * Si no ves la campaña, pulsa "Sync Instantly" en el dashboard principal.
+                                </p>
                             </div>
                         </div>
 

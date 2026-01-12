@@ -29,6 +29,7 @@ async function createCampaign(hypothesis, templateConfig = {}, sendingConfig = {
             name,
             version: hypothesis.version || 1,
             hypothesis,
+            instantly_campaign_id: hypothesis.instantly_campaign_id,
             template_config: templateConfig,
             sending_config: sendingConfig,
             status: 'draft'

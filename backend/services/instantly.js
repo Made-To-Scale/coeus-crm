@@ -107,6 +107,43 @@ async function updateCampaign(campaignId, updates) {
     if (error) throw error;
     return data;
 }
+/**
+ * Sync campaigns from Instantly API to local DB
+ */
+async function syncCampaigns() {
+    console.log('[INSTANTLY] Syncing campaigns...');
+
+    if (INSTANTLY_MODE === 'SIMULATION') {
+        console.log('[INSTANTLY SIM] Nothing to sync in simulation mode');
+        return await getCampaigns();
+    }
+
+    try {
+        const response = await axios.get(`${INSTANTLY_BASE_URL}/campaign/list`, {
+            headers: { 'Authorization': `Bearer ${INSTANTLY_API_KEY}` }
+        });
+
+        const campaigns = response.data || [];
+        console.log(`[INSTANTLY] Found ${campaigns.length} campaigns in Instantly`);
+
+        for (const camp of campaigns) {
+            // Upsert into local DB
+            await supabase
+                .from('instantly_campaigns')
+                .upsert({
+                    instantly_campaign_id: camp.id,
+                    name: camp.name,
+                    status: camp.status === 0 ? 'paused' : 'active',
+                    updated_at: new Date().toISOString()
+                }, { onConflict: 'instantly_campaign_id' });
+        }
+
+        return await getCampaigns();
+    } catch (err) {
+        console.error('[INSTANTLY] Error syncing campaigns:', err.message);
+        throw err;
+    }
+}
 
 // ============================================================================
 // LEAD ENROLLMENT
@@ -339,6 +376,80 @@ async function getCampaignStats(campaignId) {
     return stats;
 }
 
+/**
+ * Sync events from Instantly API for a campaign
+ * Sustituto de webhooks para plan Growth
+ */
+async function syncEvents(campaignId) {
+    console.log(`[INSTANTLY] Syncing events for campaign ${campaignId}...`);
+
+    const campaign = await getCampaign(campaignId);
+    if (!campaign) throw new Error('Campaign not found');
+
+    if (INSTANTLY_MODE === 'SIMULATION') {
+        console.log('[INSTANTLY SIM] Nothing to sync in simulation mode');
+        return [];
+    }
+
+    try {
+        // Fetch events from Instantly API
+        // Instantly V2 has /campaign/{id}/events
+        const response = await axios.get(`${INSTANTLY_BASE_URL}/campaign/${campaign.instantly_campaign_id}/events`, {
+            headers: { 'Authorization': `Bearer ${INSTANTLY_API_KEY}` }
+        });
+
+        const events = response.data || [];
+        console.log(`[INSTANTLY] Found ${events.length} events across all time`);
+
+        for (const event of events) {
+            // Find lead by email
+            const { data: lead } = await supabase
+                .from('leads')
+                .select('id')
+                .eq('email', event.email)
+                .single();
+
+            if (!lead) continue;
+
+            // Upsert into outreach_events
+            const { data: existingEvent } = await supabase
+                .from('outreach_events')
+                .select('id')
+                .eq('external_id', event.id)
+                .single();
+
+            if (!existingEvent) {
+                await supabase.from('outreach_events').insert([{
+                    lead_id: lead.id,
+                    campaign_id: campaignId,
+                    event_type: event.type, // sent, opened, clicked, replied, bounced
+                    provider: 'instantly',
+                    external_id: event.id,
+                    occurred_at: event.timestamp || new Date().toISOString(),
+                    provider_payload: event
+                }]);
+
+                // Update enrollment status if it's a critical event
+                if (['replied', 'bounced'].includes(event.type)) {
+                    await supabase
+                        .from('instantly_enrollments')
+                        .update({
+                            status: event.type === 'replied' ? 'completed' : 'bounced',
+                            last_event_type: event.type
+                        })
+                        .eq('lead_id', lead.id)
+                        .eq('campaign_id', campaignId);
+                }
+            }
+        }
+
+        return await getCampaignStats(campaignId);
+    } catch (err) {
+        console.error('[INSTANTLY] Error syncing events:', err.message);
+        throw err;
+    }
+}
+
 // ============================================================================
 // SIMULATION HELPERS
 // ============================================================================
@@ -532,6 +643,8 @@ module.exports = {
     getLeadEnrollment,
     getCampaignStats,
     simulateEvent,
-    enrollLeadsInCampaign
+    enrollLeadsInCampaign,
+    syncCampaigns,
+    syncEvents
 };
 
