@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import { ExternalLink, Mail, Phone, MapPin, Star, TrendingUp, Activity, Plus, Save, Trash2, CheckCircle2, MessageSquare, Users, X, Send, Globe } from 'lucide-react'
+import { LeadDetailModalTabbed } from './LeadDetailModalTabbed'
 
 // Exported for reuse (e.g. in PipelineView)
 export function LeadDetailModal({ lead, onClose, onUpdate }) {
@@ -738,7 +739,7 @@ export default function LeadsView() {
             </div>
 
             {selectedLead && (
-                <LeadDetailModal
+                <LeadDetailModalTabbed
                     lead={selectedLead}
                     onClose={() => setSelectedLead(null)}
                     onUpdate={(updated) => {
