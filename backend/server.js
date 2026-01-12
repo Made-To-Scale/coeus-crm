@@ -166,7 +166,9 @@ async function processResults(results, runId) {
     const searchQuery = runData?.query || 'Unknown';
 
     // 1. Update status to PROCESSING
-    await supabase.from('scrape_runs').update({ config: { ...runData.config, status: 'PROCESSING' } }).eq('id', runId);
+    await supabase.from('scrape_runs').update({
+        config: { status: 'ENRICHING', limit, total_leads: results.length }
+    }).eq('id', runId);
 
     for (const item of results) {
         const { lead_clean, enrichment_needed } = cleanLead(item);
@@ -218,9 +220,11 @@ async function processResults(results, runId) {
 
         // 5. Trigger enrichment for all viable leads (ENRICH or OUTREACH_READY)
         if (route !== 'DROP_CLOSED') {
-            // Update run status to ENRICHING (once)
+            // Update run status to AI_ANALYSIS
             const { data: latestRun } = await supabase.from('scrape_runs').select('config').eq('id', runId).single();
-            await supabase.from('scrape_runs').update({ config: { ...latestRun.config, status: 'ENRICHING' } }).eq('id', runId);
+            await supabase.from('scrape_runs').update({
+                config: { ...latestRun.config, status: 'AI_ANALYSIS' }
+            }).eq('id', runId);
 
             console.log(`[ENRICH] Triggering for: ${lead.business_name}`);
             enrichLead(lead.id).catch(err => console.error(`[ENRICH] Error enriching ${lead.id}:`, err));
@@ -229,7 +233,9 @@ async function processResults(results, runId) {
 
     // 6. Mark run as COMPLETED
     const { data: finalRun } = await supabase.from('scrape_runs').select('config').eq('id', runId).single();
-    await supabase.from('scrape_runs').update({ config: { ...finalRun.config, status: 'COMPLETED' } }).eq('id', runId);
+    await supabase.from('scrape_runs').update({
+        config: { ...finalRun.config, status: 'COMPLETED', completed_at: new Date().toISOString() }
+    }).eq('id', runId);
     console.log(`[PROCESS] Completed run ${runId}`);
 }
 

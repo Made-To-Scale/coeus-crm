@@ -522,7 +522,7 @@ export function LeadDetailModal({ lead, onClose, onUpdate }) {
     )
 }
 
-export default function LeadsView({ filterTier: propTier }) {
+export default function LeadsView() {
     const [leads, setLeads] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
@@ -530,18 +530,27 @@ export default function LeadsView({ filterTier: propTier }) {
     const [runs, setRuns] = useState([])
 
     // Filter states
-    const [filterTier, setFilterTier] = useState(propTier || 'ALL')
-    const [filterSearch, setFilterSearch] = useState('ALL')
-    const [filterCity, setFilterCity] = useState('ALL')
+    const [filterTier, setFilterTier] = useState(null)
+    const [filterQuery, setFilterQuery] = useState('')
+    const [filterCity, setFilterCity] = useState('')
     const [filterStage, setFilterStage] = useState('active')
 
-    useEffect(() => {
-        if (propTier) setFilterTier(propTier)
-    }, [propTier])
 
     useEffect(() => {
         fetchLeads()
         fetchRuns()
+
+        // Check for URL hash filter
+        const hash = window.location.hash
+        if (hash.includes('?search=')) {
+            const params = new URLSearchParams(hash.split('?')[1])
+            const searchQuery = params.get('search')
+            if (searchQuery) {
+                setFilterQuery(decodeURIComponent(searchQuery))
+                // Clear hash after reading
+                window.location.hash = '#leads'
+            }
+        }
     }, [])
 
     async function fetchLeads() {

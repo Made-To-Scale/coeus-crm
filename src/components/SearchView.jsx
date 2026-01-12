@@ -168,14 +168,45 @@ export default function SearchView() {
                             ) : (
                                 runs.map(run => {
                                     const status = run.config?.status || 'UNKNOWN'
-                                    const isRunning = ['PROCESSING', 'ENRICHING', 'RUNNING'].includes(status)
-                                    const isCompleted = status === 'COMPLETED' || status === 'SUCCEEDED'
+                                    const totalLeads = run.config?.total_leads || 0
+                                    const targetLimit = run.config?.limit || 20
+
+                                    // State progression
+                                    const isScraping = status === 'SCRAPING'
+                                    const isEnriching = status === 'ENRICHING'
+                                    const isAIProcessing = status === 'AI_ANALYSIS'
+                                    const isCompleted = status === 'COMPLETED'
+                                    const isRunning = isScraping || isEnriching || isAIProcessing
+
+                                    // Progress calculation
+                                    let progressPercent = 0
+                                    let progressLabel = ''
+                                    if (isScraping) {
+                                        progressPercent = 20
+                                        progressLabel = 'Scraping Google Maps...'
+                                    } else if (isEnriching) {
+                                        progressPercent = 50
+                                        progressLabel = 'Enriching contacts...'
+                                    } else if (isAIProcessing) {
+                                        progressPercent = 80
+                                        progressLabel = 'AI Intelligence...'
+                                    } else if (isCompleted) {
+                                        progressPercent = 100
+                                        progressLabel = '100% Complete'
+                                    }
 
                                     return (
-                                        <div key={run.id} className="bg-white p-5 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-all group">
+                                        <div
+                                            key={run.id}
+                                            onClick={() => {
+                                                // Navigate to Leads view filtered by this search
+                                                window.location.hash = `#leads?search=${encodeURIComponent(run.query)}`
+                                            }}
+                                            className="bg-white p-5 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-all group cursor-pointer hover:border-blue-300"
+                                        >
                                             <div className="flex justify-between items-start mb-3">
                                                 <div>
-                                                    <h3 className="font-bold text-slate-800 text-lg">{run.query || 'Unknown Query'}</h3>
+                                                    <h3 className="font-bold text-slate-800 text-lg group-hover:text-blue-600 transition-colors">{run.query || 'Unknown Query'}</h3>
                                                     <div className="text-xs text-slate-500 font-medium flex items-center gap-2 mt-1">
                                                         <span className="uppercase">{run.geo || 'Global'}</span>
                                                         <span>•</span>
@@ -183,26 +214,27 @@ export default function SearchView() {
                                                     </div>
                                                 </div>
                                                 <div className={`px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider flex items-center gap-2 ${isRunning ? 'bg-blue-100 text-blue-700 animate-pulse' :
-                                                    isCompleted ? 'bg-green-100 text-green-700' :
-                                                        'bg-red-50 text-red-700'
+                                                        isCompleted ? 'bg-green-100 text-green-700' :
+                                                            'bg-red-50 text-red-700'
                                                     }`}>
                                                     {isRunning && <Loader2 size={12} className="animate-spin" />}
                                                     {status}
                                                 </div>
                                             </div>
 
-                                            {/* Progress Bar (Simulated or Real if available) */}
+                                            {/* Progress Bar */}
                                             <div className="relative h-2 bg-slate-100 rounded-full overflow-hidden mt-4">
                                                 <div
-                                                    className={`absolute top-0 left-0 h-full transition-all duration-1000 ${isCompleted ? 'bg-green-500 w-full' :
-                                                        isRunning ? 'bg-blue-500 w-2/3 animate-pulse' :
-                                                            'bg-red-400 w-full'
+                                                    className={`absolute top-0 left-0 h-full transition-all duration-500 ${isCompleted ? 'bg-green-500' :
+                                                            isRunning ? 'bg-blue-500' :
+                                                                'bg-red-400'
                                                         }`}
+                                                    style={{ width: `${progressPercent}%` }}
                                                 ></div>
                                             </div>
                                             <div className="flex justify-between items-center mt-2 text-xs font-bold text-slate-400 uppercase">
-                                                <span>Target: {run.config?.limit || 0} Leads</span>
-                                                <span>{isCompleted ? '100% Complete' : isRunning ? 'In Progress...' : 'Stopped'}</span>
+                                                <span>Target: {totalLeads > 0 ? `${totalLeads}` : targetLimit} Leads</span>
+                                                <span>{progressLabel}</span>
                                             </div>
                                         </div>
                                     )
