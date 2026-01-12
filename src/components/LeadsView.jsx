@@ -530,9 +530,9 @@ export default function LeadsView() {
     const [runs, setRuns] = useState([])
 
     // Filter states
-    const [filterTier, setFilterTier] = useState(null)
-    const [filterQuery, setFilterQuery] = useState('')
-    const [filterCity, setFilterCity] = useState('')
+    const [filterTier, setFilterTier] = useState('ALL')
+    const [filterSearch, setFilterSearch] = useState('ALL')
+    const [filterCity, setFilterCity] = useState('ALL')
     const [filterStage, setFilterStage] = useState('active')
 
 
@@ -540,14 +540,13 @@ export default function LeadsView() {
         fetchLeads()
         fetchRuns()
 
-        // Check for URL hash filter
+        // Check for URL hash filter from SearchView
         const hash = window.location.hash
         if (hash.includes('?search=')) {
             const params = new URLSearchParams(hash.split('?')[1])
             const searchQuery = params.get('search')
             if (searchQuery) {
-                setFilterQuery(decodeURIComponent(searchQuery))
-                // Clear hash after reading
+                setFilterSearch(decodeURIComponent(searchQuery))
                 window.location.hash = '#leads'
             }
         }

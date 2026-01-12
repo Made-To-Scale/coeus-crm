@@ -162,12 +162,14 @@ async function processResults(results, runId) {
     console.log(`[PROCESS] Processing ${results.length} items for run ${runId}`);
 
     // Fetch the query for this run to tag leads
-    const { data: runData } = await supabase.from('scrape_runs').select('query').eq('id', runId).single();
+    // Get run data with config
+    const { data: runData } = await supabase.from('scrape_runs').select('query, config').eq('id', runId).single();
     const searchQuery = runData?.query || 'Unknown';
+    const originalLimit = runData?.config?.limit || results.length;
 
-    // 1. Update status to PROCESSING
+    // 1. Update status to ENRICHING
     await supabase.from('scrape_runs').update({
-        config: { status: 'ENRICHING', limit, total_leads: results.length }
+        config: { status: 'ENRICHING', limit: originalLimit, total_leads: results.length }
     }).eq('id', runId);
 
     for (const item of results) {
