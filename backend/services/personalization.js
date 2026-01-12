@@ -103,7 +103,7 @@ async function generateBlocksForLead(leadId, campaignId, batchId) {
             micro_offer: blocks.micro_offer,
             cta_question: blocks.cta_question,
             prompt_version: 'v1.0',
-            model: process.env.LLM_MODEL || 'anthropic/claude-3-haiku',
+            model: process.env.LLM_PERSONALIZATION_MODEL || 'anthropic/claude-3-haiku',
             quality_flag,
             quality_score,
             context_snapshot: context

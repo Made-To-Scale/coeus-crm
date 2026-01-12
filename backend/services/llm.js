@@ -2,7 +2,13 @@ const axios = require('axios');
 require('dotenv').config();
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-const LLM_MODEL = process.env.LLM_MODEL || 'anthropic/claude-3-haiku';
+
+// Use Claude 3.5 Sonnet for deep analysis (website intelligence, contact extraction)
+// Better reasoning and understanding of complex business contexts
+const ENRICHMENT_MODEL = process.env.LLM_ENRICHMENT_MODEL || 'anthropic/claude-3.5-sonnet';
+
+// Use Claude 3 Haiku for quick personalization blocks (fast and cost-effective)
+const PERSONALIZATION_MODEL = process.env.LLM_PERSONALIZATION_MODEL || 'anthropic/claude-3-haiku';
 
 /**
  * Summarizes scraped website content for personalization
@@ -55,7 +61,7 @@ async function generatePersonalization(businessName, scrapedTexts) {
 
     try {
         const response = await axios.post('https://openrouter.ai/api/v1/chat/completions', {
-            model: LLM_MODEL,
+            model: ENRICHMENT_MODEL,
             messages: [
                 { role: 'system', content: 'Eres un analista de negocios profesional. Tu salida debe ser ÚNICAMENTE JSON y todo el texto en ESPAÑOL.' },
                 { role: 'user', content: prompt }
@@ -112,7 +118,7 @@ async function findContactsInText(businessName, rawText) {
 
     try {
         const response = await axios.post('https://openrouter.ai/api/v1/chat/completions', {
-            model: LLM_MODEL,
+            model: ENRICHMENT_MODEL,
             messages: [
                 { role: 'system', content: 'Eres un experto en inteligencia de ventas. Tu salida debe ser ÚNICAMENTE un array JSON.' },
                 { role: 'user', content: prompt }
@@ -187,7 +193,7 @@ async function generatePersonalizationBlocks(context) {
 
     try {
         const response = await axios.post('https://openrouter.ai/api/v1/chat/completions', {
-            model: LLM_MODEL,
+            model: PERSONALIZATION_MODEL,
             messages: [
                 { role: 'system', content: 'Eres un experto en copywriting B2B. Tu salida debe ser ÚNICAMENTE JSON y todo el texto en ESPAÑOL.' },
                 { role: 'user', content: prompt }
