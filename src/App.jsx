@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { LayoutDashboard, Users, Megaphone, Settings, Database, Activity, Search, Columns, ChevronDown, ChevronRight, Mail, Phone, MessageSquare } from 'lucide-react'
 import SearchView from './components/SearchView'
 import PipelineView from './components/PipelineView'
@@ -10,6 +10,19 @@ import OutreachView from './components/OutreachView'
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard')
   const [outreachOpen, setOutreachOpen] = useState(false)
+
+  // Listen for hash changes from SearchView clicks
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.split('?')[0] // Get hash without params
+      if (hash === '#leads') {
+        setActiveTab('leads')
+      }
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   const renderContent = () => {
     switch (activeTab) {
